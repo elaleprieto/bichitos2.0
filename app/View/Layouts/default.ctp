@@ -15,47 +15,69 @@
  * @since         CakePHP(tm) v 0.10.0.1076
  * @license       MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
-
-$cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework');
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-	<?php echo $this->Html->charset(); ?>
-	<title>
-		<?php echo $cakeDescription ?>:
-		<?php echo $title_for_layout; ?>
-	</title>
-	<?php
-		echo $this->Html->meta('icon');
+<!doctype html>
+<!--[if lt IE 7 ]> <html lang="en" class="no-js ie6"> <![endif]-->
+<!--[if IE 7 ]>    <html lang="en" class="no-js ie7"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="en" class="no-js ie8"> <![endif]-->
+<!--[if IE 9 ]>    <html lang="en" class="no-js ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!-->
+<html lang="es" class="no-js">
+	<!--<![endif]-->
+	<head>
+		<?php echo $this -> Html -> charset(); ?>
+		<title> Bichitos :: <?php echo $title_for_layout; ?> </title>
+		<?php
+		echo $this -> Html -> meta('icon');
 
-		echo $this->Html->css('cake.generic');
+		echo $this -> Html -> css('cake.generic');
+		echo $this -> Html -> css('style');
+		echo $this -> Html -> css('estilos');
 
-		echo $this->fetch('meta');
-		echo $this->fetch('css');
-		echo $this->fetch('script');
-	?>
-</head>
-<body>
-	<div id="container">
-		<div id="header">
-			<h1><?php echo $this->Html->link($cakeDescription, 'http://cakephp.org'); ?></h1>
+		echo $this -> Html -> script('http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js');
+		echo $this -> Html -> script('http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.5.3/modernizr.min.js');
+		echo $this -> Html -> script('bichitos');
+
+		echo $this -> fetch('meta');
+		echo $this -> fetch('css');
+		echo $this -> fetch('script');
+		
+		# Se define la ruta base
+		echo $this -> Html -> scriptBlock('WEBROOT="'.$this -> Html-> url('/', true).'"');
+		?>
+	</head>
+	<body class="cf">
+		<div id="container">
+			<header class="span2">
+				<div class="inner cf">
+					<h1 class="alt span1 head"> <?= $this -> Html -> image('bug128.png', array('class' => 'bug')); ?>
+					Bichitos para Todos </h1>
+					<nav class="span1 col">
+						<ul class="cf">
+							<li>
+								<?= $this -> Html -> link('Inicio', array('controller' => 'bichitos', 'action' => 'index'), array('class' => 'alt')); ?>
+							</li>
+							<li>
+								<?= $this -> Html -> link('Color', array('controller' => 'bichitos', 'action' => 'colorear'), array('class' => 'alt')); ?>
+							</li>
+							<li>
+								<?= $this -> Html -> link('Dirección', array('controller' => 'bichitos', 'action' => 'direccionar'), array('class' => 'alt')); ?>
+							</li>
+						</ul>
+					</nav>
+				</div>
+			</header>
+			<div id="content" class="cf">
+				<?php echo $this -> Session -> flash(); ?>
+				<?php echo $this -> fetch('content'); ?>
+			</div>
+			<footer>
+				<div class="inner cf">
+					<h1> <?= $this -> Html -> image('elefante a colores.svg', array('class' => 'elefante')); ?>
+					Colectivo Libre :: 2012</h1>
+				</div>
+			</footer>
 		</div>
-		<div id="content">
-
-			<?php echo $this->Session->flash(); ?>
-
-			<?php echo $this->fetch('content'); ?>
-		</div>
-		<div id="footer">
-			<?php echo $this->Html->link(
-					$this->Html->image('cake.power.gif', array('alt' => $cakeDescription, 'border' => '0')),
-					'http://www.cakephp.org/',
-					array('target' => '_blank', 'escape' => false)
-				);
-			?>
-		</div>
-	</div>
-	<?php echo $this->element('sql_dump'); ?>
-</body>
+		<?php echo $this -> element('sql_dump'); ?>
+	</body>
 </html>
