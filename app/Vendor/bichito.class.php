@@ -21,7 +21,7 @@ class bichito extends phpSerial {
 	 */
 	//public function bichito() {
 	public function __construct() {
-       parent::__construct();
+       return parent::__construct();
 	}
 	
 	/**
@@ -31,14 +31,16 @@ class bichito extends phpSerial {
 	 */
 	public function bichitoDefaultACM() {
 		//Specify the serial port to use... in this case COM1 <> ACM0 es el usb supuestamente
-		$this -> deviceSet("ACM0");
-		
-		//Set the serial port parameters. The documentation says 9600 8-N-1, so
-		$this -> confBaudRate(9600); 		//Baud rate: 9600
-		$this -> confParity("none");  		//Parity (this is the "N" in "8-N-1")
-		$this -> confCharacterLength(8); 	//Character length (this is the "8" in "8-N-1")
-		$this -> confStopBits(1);  			//Stop bits (this is the "1" in "8-N-1")
-		$this -> confFlowControl("none");	//Device does not support flow control of any kind, so set it to none.
+		if($this -> deviceSet("ACM0")) {
+			//Set the serial port parameters. The documentation says 9600 8-N-1, so
+			$this -> confBaudRate(9600); 		//Baud rate: 9600
+			$this -> confParity("none");  		//Parity (this is the "N" in "8-N-1")
+			$this -> confCharacterLength(8); 	//Character length (this is the "8" in "8-N-1")
+			$this -> confStopBits(1);  			//Stop bits (this is the "1" in "8-N-1")
+			$this -> confFlowControl("none");	//Device does not support flow control of any kind, so set it to none.
+			return TRUE;
+		}
+		return FALSE;
 	}
 	
 	/**
@@ -48,14 +50,16 @@ class bichito extends phpSerial {
 	 */
 	public function bichitoDefaultCOM() {
 		//Specify the serial port to use... in this case COM1 <> ACM0 es el usb supuestamente
-		$this -> deviceSet("COM1");
-		
-		//Set the serial port parameters. The documentation says 9600 8-N-1, so
-		$this -> confBaudRate(9600); 		//Baud rate: 9600
-		$this -> confParity("none");  		//Parity (this is the "N" in "8-N-1")
-		$this -> confCharacterLength(8); 	//Character length (this is the "8" in "8-N-1")
-		$this -> confStopBits(1);  			//Stop bits (this is the "1" in "8-N-1")
-		$this -> confFlowControl("none");	//Device does not support flow control of any kind, so set it to none.
+		if($this -> deviceSet("COM1")) {
+			//Set the serial port parameters. The documentation says 9600 8-N-1, so
+			$this -> confBaudRate(9600); 		//Baud rate: 9600
+			$this -> confParity("none");  		//Parity (this is the "N" in "8-N-1")
+			$this -> confCharacterLength(8); 	//Character length (this is the "8" in "8-N-1")
+			$this -> confStopBits(1);  			//Stop bits (this is the "1" in "8-N-1")
+			$this -> confFlowControl("none");	//Device does not support flow control of any kind, so set it to none.
+			return TRUE;
+		}
+		return FALSE;
 	}
 	
 	public function asignar_direccion($address) {
