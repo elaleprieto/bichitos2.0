@@ -42,12 +42,16 @@ function asignarDireccion() {
 	if (verificarDireccion()) {
 		$('#loading').show();
 		$('#mensaje').hide();
-		$.post("asignar_direccion.php", $("#formulario").serialize(), function() {
+		$.post(WEBROOT + "bichitos/direccionar", $("#formulario").serialize(), function() {
 			$('#loading').hide();
 			$('#mensaje').html('<h3>¡Bien! Se ha asignado la dirección.</h3>').fadeIn();
-		}).error(function() {
+		}).error(function(data, textStatus, texto) {
 			$('#loading').hide();
-			$('#mensaje').html('<h3 class="error">¡Cuidado! Se ha producido un error.</h3><p>(Ayuda: Verifica el dispositivo elegido y los permisos.)</p>').fadeIn();
+			if(data.status == '501') {
+				$('#mensaje').html('<h3 class="error">¡Cuidado! Se ha producido un error.</h3><p>(Ayuda: Puede que falte un parámetro.)</p>').fadeIn();
+			} else {							
+				$('#mensaje').html('<h3 class="error">¡Cuidado! Se ha producido un error.</h3><p>(Ayuda: Verifica el dispositivo elegido y los permisos.)</p>').fadeIn();
+			}
 		});
 	} else {
 		$('#mensaje').html('<h3 class="error">¡Cuidado! No haz especificado una dirección.</h3><p>(Ayuda: Escribe una dirección válida.)</p>').fadeIn();
@@ -60,12 +64,16 @@ function asignarColor() {
 		if (verificarColor()) {
 			if (verificarPin()) {
 				$('#loading').show();
-				$.post("asignar_color.php", $("#formulario").serialize(), function() {
+				$.post(WEBROOT + "bichitos/colorear", $("#formulario").serialize(), function() {
 					$('#loading').hide();
 					$('#mensaje').html('<h3>¡Bien! Se ha asignado un color.</h3>').fadeIn();
-				}).error(function() {
+				}).error(function(data, textStatus, texto) {
 					$('#loading').hide();
-					$('#mensaje').html('<h3 class="error">¡Cuidado! Se ha producido un error.</h3><p>(Ayuda: Verifica el dispositivo elegido y los permisos.)</p>').fadeIn();
+					if(data.status == '501') {
+						$('#mensaje').html('<h3 class="error">¡Cuidado! Se ha producido un error.</h3><p>(Ayuda: Puede que falte un parámetro.)</p>').fadeIn();
+					} else {							
+						$('#mensaje').html('<h3 class="error">¡Cuidado! Se ha producido un error.</h3><p>(Ayuda: Verifica el dispositivo elegido y los permisos.)</p>').fadeIn();
+					}
 				});
 			} else {
 				$('#mensaje').html('<h3 class="error">¡Cuidado! Pin erróneo.</h3><p>(Ayuda: Escribe un número entre 0 y 3.)</p>').fadeIn();
@@ -97,9 +105,13 @@ function prenderLamparita() {
 					apagarLamparita();
 				});
 				$('#lampara').append(lamparita);
-			}).error(function() {
+			}).error(function(data, textStatus, texto) {
 				$('#loading').hide();
-				$('#mensaje').html('<h3 class="error">¡Cuidado! Se ha producido un error.</h3><p>(Ayuda: Verifica el dispositivo elegido y los permisos.)</p>').fadeIn();
+				if(data.status == '501') {
+					$('#mensaje').html('<h3 class="error">¡Cuidado! Se ha producido un error.</h3><p>(Ayuda: Puede que falte un parámetro.)</p>').fadeIn();
+				} else {							
+					$('#mensaje').html('<h3 class="error">¡Cuidado! Se ha producido un error.</h3><p>(Ayuda: Verifica el dispositivo elegido y los permisos.)</p>').fadeIn();
+				}								
 			});
 		} else {
 				$('#mensaje').html('<h3 class="error">¡Cuidado! Pin erróneo.</h3><p>(Ayuda: Escribe un número entre 0 y 3.)</p>').fadeIn();
@@ -114,7 +126,7 @@ function apagarLamparita() {
 	if (verificarDireccion()) {
 		if (verificarPin()) {
 			$('#loading').show();
-			$.post("asignar_accion.php", {
+			$.post(WEBROOT + "bichitos/asignar_accion", {
 				puerto : $('#puerto').val(),
 				direccion : $('#direccion').val(),
 				accion : '0',
@@ -128,9 +140,13 @@ function apagarLamparita() {
 					prenderLamparita();
 				});
 				$('#lampara').append(lamparita);
-			}).error(function() {
+			}).error(function(data, textStatus, texto) {
 				$('#loading').hide();
-				$('#mensaje').html('<h3 class="error">¡Cuidado! Se ha producido un error.</h3><p>(Ayuda: Verifica el dispositivo elegido y los permisos.)</p>').fadeIn();
+				if(data.status == '501') {
+					$('#mensaje').html('<h3 class="error">¡Cuidado! Se ha producido un error.</h3><p>(Ayuda: Puede que falte un parámetro.)</p>').fadeIn();
+				} else {							
+					$('#mensaje').html('<h3 class="error">¡Cuidado! Se ha producido un error.</h3><p>(Ayuda: Verifica el dispositivo elegido y los permisos.)</p>').fadeIn();
+				}
 			});
 		} else {
 				$('#mensaje').html('<h3 class="error">¡Cuidado! Pin erróneo.</h3><p>(Ayuda: Escribe un número entre 0 y 3.)</p>').fadeIn();

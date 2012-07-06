@@ -98,11 +98,11 @@ class BichitosController extends AppController {
 	}
 
 	/**
-	 * delete method
+	 * asignar_accion method
 	 *
 	 * @throws MethodNotAllowedException
 	 * @throws NotFoundException
-	 * @param string $id
+	 * @throws CakeException
 	 * @return void
 	 */
 	public function asignar_accion() {
@@ -110,13 +110,10 @@ class BichitosController extends AppController {
 			throw new MethodNotAllowedException();
 		}
 		$this -> layout = 'ajax';
-		$this -> set('request', $this -> request);
-		
+
 		# Se verifica que las variables requeridas estén definidas
-		if ($this -> request -> data('puerto') && $this -> request -> data('direccion') && $this -> request -> data('accion')) {
+		if (isset($this -> request -> data['puerto']) && isset($this -> request -> data['direccion']) && isset($this -> request -> data['accion'])) {
 			# Se carga la clase requerida
-			// require ("bichito.class.php");
-			// App::import('Vendor', 'bichito.class');
 			App::import('Vendor', 'BichitoClass', array('file' => 'bichito.class.php'));
 
 			# Definición de variables
@@ -132,7 +129,10 @@ class BichitosController extends AppController {
 
 				# Definición del Puerto de Salida
 				# puerto = 0 >> ACM0 // puerto = 1 >> COM1
-				$puerto == 0 ? $serial -> bichitoDefaultACM() : $serial -> bichitoDefaultCOM();
+				$puerto == 0 ? $puertoValido = $serial -> bichitoDefaultACM() : $puertoValido = $serial -> bichitoDefaultCOM();
+				if (!$puertoValido) {
+					throw new NotFoundException('Puerto Inválido', 401);
+				}
 
 				// borrar
 				// $serial -> bichitoDefaultACM();
@@ -150,8 +150,107 @@ class BichitosController extends AppController {
 				# Se cierra la conexión con el dispositivo
 				$serial -> deviceClose();
 			}
+		} else {
+			throw new CakeException('Falta algún parámetro', 501);
 		}
+	}
 
+	/**
+	 * colorear method
+	 *
+	 * @throws NotFoundException
+	 * @throws CakeException
+	 * @return void
+	 */
+	public function colorear() {
+		if ($this -> request -> is('post')) {
+			$this -> layout = 'ajax';
+
+			# Se verifica que las variables requeridas estén definidas
+			if (isset($this -> request -> data['puerto']) && isset($this -> request -> data['direccion']) && isset($this -> request -> data['color'])) {
+				# Se carga la clase requerida
+				App::import('Vendor', 'BichitoClass', array('file' => 'bichito.class.php'));
+
+				# Definición de variables
+				$puerto = $this -> request -> data('puerto');
+				$direccion = $this -> request -> data('direccion');
+				$color = $this -> request -> data('color');
+				$pin = (isset($this -> request -> data['pin']) && ($this -> request -> data('pin') >= 0) && ($this -> request -> data('pin') <= 3)) ? $this -> request -> data('pin') : 0;
+
+				# Se verifican los valores de las variables
+				if (($puerto >= 0) && ($direccion >= 0) && ($color >= 0) && ($color <= 255)) {
+					# Se inicializa la clase
+					$serial = new bichito();
+
+					# Definición del Puerto de Salida
+					# puerto = 0 >> ACM0 // puerto = 1 >> COM1
+					$puerto == 0 ? $puertoValido = $serial -> bichitoDefaultACM() : $puertoValido = $serial -> bichitoDefaultCOM();
+					if (!$puertoValido) {
+						throw new NotFoundException('Puerto Inválido', 401);
+					}
+
+					# Se abre una conexión con el dispositivo para escritura
+					$serial -> deviceOpen();
+
+					# Se le envía el color
+					$serial -> colorear($direccion, $color, $pin);
+
+					# Se cierra la conexión con el dispositivo
+					$serial -> deviceClose();
+				}
+			} else {
+				throw new CakeException('Falta algún parámetro', 501);
+			}
+			$this -> render('default');
+		}
+	}
+
+	/**
+	 * direccionar method
+	 *
+	 * @throws NotFoundException
+	 * @throws CakeException
+	 * @return void
+	 */
+	public function direccionar() {
+		if ($this -> request -> is('post')) {
+			$this -> layout = 'ajax';
+
+			# Verficiación de variables
+			if (isset($this -> request -> data['puerto']) && isset($this -> request -> data['direccion'])) {
+				# Se carga la clase requerida
+				App::import('Vendor', 'BichitoClass', array('file' => 'bichito.class.php'));
+				
+				# Definición de variables
+				$puerto = $this -> request -> data('puerto');
+				$direccion = $this -> request -> data('direccion');
+
+				# Se verifican los valores de las variables
+				if (($puerto >= 0) && ($direccion >= 0)) {
+					# Initialización de la clase
+					$serial = new bichito();
+
+					# Definición del Puerto de Salida
+					# puerto = 0 >> ACM0 // puerto = 1 >> COM1
+					$puerto == 0 ? $puertoValido = $serial -> bichitoDefaultACM() : $puertoValido = $serial -> bichitoDefaultCOM();
+					if (!$puertoValido) {
+						throw new NotFoundException('Puerto Inválido', 401);
+					}
+
+					# Se abre una conexión con el dispositivo para escritura
+					$serial -> deviceOpen();
+
+					# Se le envía el mensaje, en este caso la dirección
+					$serial -> asignar_direccion($direccion);
+
+					# Se cierra la conexión con el dispositivo
+					$serial -> deviceClose();
+				}
+			} else {
+				throw new CakeException('Falta algún parámetro', 501);
+			}
+			$this -> render('default');
+		}
 	}
 
 }
