@@ -13,16 +13,14 @@
 					</select>
 				</div>
 				<div class="atributo">
-					<label for="direccion">Escribe una dirección</label>
-					<input placeholder="Dirección" type="text" name="direccion" class="atributo" id="direccion" />
+					<?php echo $this -> element('direcciones'); ?>
 				</div>
 				<div class="atributo">
-					<label for="pin">Escribe un pin de salida</label>
-					<input value="0" type="text" name="pin" class="atributo" id="pin" />
+					<?php echo $this -> element('colores'); ?>
 				</div>
 				<div class="atributo">
-					<label for="color">Escribe un color</label>
-					<input placeholder="Color" type="text" name="color" class="atributo" id="color" />
+					<label for="color">Escribe la intensidad</label>
+					<input placeholder="Intensidad" type="text" name="color" class="atributo" id="color" />
 				</div>
 				<div class="atributo">
 					<button type="button" id="boton_color" class="atributo">
@@ -38,9 +36,4 @@
 		</p>
 	</aside>
 </fieldset>
-<div id="mensaje">
-	<h3>¡Bienvenido! Para empezar a jugar, haz clic sobre una lamparita...</h3>
-</div>
-<div id="loading">
-	<?= $this -> Html -> image('load.gif'); ?>
-</div>
+<?php echo $this -> element('mensaje'); ?>

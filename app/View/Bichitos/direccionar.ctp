@@ -13,8 +13,7 @@
 					</select>
 				</div>
 				<div class="atributo">
-					<label for="direccion">Escribe una dirección</label>
-					<input placeholder="Dirección" type="text" name="direccion" class="atributo" id="direccion" />
+					<?php echo $this -> element('direcciones'); ?>
 				</div>
 				<div class="atributo">
 					<button type="button" id="boton_direccion" class="atributo">
@@ -31,9 +30,4 @@
 	</aside>
 
 </fieldset>
-<div id="mensaje">
-	<h3>¡Bienvenido! Para empezar a jugar, haz clic sobre una lamparita...</h3>
-</div>
-<div id="loading">
-	<?= $this -> Html -> image('load.gif'); ?>
-</div>
+<?php echo $this -> element('mensaje'); ?>
