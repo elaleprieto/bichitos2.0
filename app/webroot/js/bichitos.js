@@ -91,7 +91,7 @@ function prenderLamparita() {
 	if (verificarDireccion()) {
 		if (verificarPin()) {
 			$('#loading').show();
-			$.post(WEBROOT + "bichitos/asignar_accion", {
+			$.post(WEBROOT + "bichitos/accionar", {
 				puerto : $('#puerto').val(),
 				direccion : $('#direccion').val(),
 				accion : '1',
@@ -100,7 +100,7 @@ function prenderLamparita() {
 				$('#loading').hide();
 				$('#mensaje').html('<h3>Haz hecho clic sobre <span class="resaltar">Prender</span>, la luz debería estar prendida ahora.</h3>').fadeIn();
 				$('#lampara').empty();
-				lamparita = $('<img>').attr('src', "img/lamparita_on.svg").attr('class', "lamparita").attr('id', "lamparita_index_on");
+				lamparita = $('<img>').attr('src', WEBROOT + "img/lamparita_on.svg").attr('class', "lamparita").attr('id', "lamparita_index_on");
 				lamparita.click(function() {
 					apagarLamparita();
 				});
@@ -126,7 +126,7 @@ function apagarLamparita() {
 	if (verificarDireccion()) {
 		if (verificarPin()) {
 			$('#loading').show();
-			$.post(WEBROOT + "bichitos/asignar_accion", {
+			$.post(WEBROOT + "bichitos/accionar", {
 				puerto : $('#puerto').val(),
 				direccion : $('#direccion').val(),
 				accion : '0',
@@ -135,7 +135,7 @@ function apagarLamparita() {
 				$('#loading').hide();
 				$('#mensaje').html('<h3>Haz hecho clic sobre <span class="resaltar">Apagar</span>, la luz debería estar apagada ahora.</h3>').fadeIn();
 				$('#lampara').empty();
-				lamparita = $('<img>').attr('src', "img/lamparita_off.svg").attr('class', "lamparita").attr('id', "lamparita_index_off");
+				lamparita = $('<img>').attr('src', WEBROOT + "img/lamparita_off.svg").attr('class', "lamparita").attr('id', "lamparita_index_off");
 				lamparita.click(function() {
 					prenderLamparita();
 				});

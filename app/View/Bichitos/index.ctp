@@ -1,43 +1,50 @@
-	<fieldset>
-	<legend>Inicio</legend>
-	<article class="span1">
-		<section>
-			<form id="formulario">
-				<div class="atributo">
-					<label for="puerto">Selecciona un dispositivo</label>
-					<select id="puerto" name="puerto" class="atributo">
-						<option value="0">ACM0</option>
-						<option value="1">COM1</option>
-					</select>
-				</div>
-				<div class="atributo">
-					<label for="direccion">Escribe una dirección</label>
-					<input id="direccion" placeholder="Dirección" type="text" name="direccion" class="atributo" />
-				</div>
-				<div class="atributo">
-					<label for="pin">Escribe un pin de salida</label>
-					<input value="0" type="text" name="pin" class="atributo" id="pin" />
-				</div>
-				<div class="atributo">
-					<button type="button" id="boton_prender" class="atributo">
-						¡Prender!
-					</button>
-					<button type="button" id="boton_apagar" class="atributo">
-						¡Apagar!
-					</button>
-				</div>
-			</form>
-		</section>
-	</article>
-	<aside class="span1 col">
-		<div id="lampara">
-			<img src="img/lamparita_off.svg" class="lamparita" id="lamparita_index_off"/>
-		</div>
-	</aside>
-</fieldset>
-	<div id="mensaje">
-		<h3>¡Bienvenido! Para empezar a jugar, haz clic sobre una lamparita...</h3>
+<div class="bichitos index">
+	<h2><?php echo __('Bichitos'); ?></h2>
+	<table cellpadding="0" cellspacing="0">
+	<tr>
+			<th><?php echo $this->Paginator->sort('id'); ?></th>
+			<th><?php echo $this->Paginator->sort('direccion'); ?></th>
+			<th><?php echo $this->Paginator->sort('estado'); ?></th>
+			<th><?php echo $this->Paginator->sort('intensidadAzul'); ?></th>
+			<th><?php echo $this->Paginator->sort('intensidadRojo'); ?></th>
+			<th><?php echo $this->Paginator->sort('intensidadVerde'); ?></th>
+			<th class="actions"><?php echo __('Actions'); ?></th>
+	</tr>
+	<?php
+	foreach ($bichitos as $bichito): ?>
+	<tr>
+		<td><?php echo h($bichito['Bichito']['id']); ?>&nbsp;</td>
+		<td><?php echo h($bichito['Bichito']['direccion']); ?>&nbsp;</td>
+		<td><?php echo h($bichito['Bichito']['estado']); ?>&nbsp;</td>
+		<td><?php echo h($bichito['Bichito']['intensidadAzul']); ?>&nbsp;</td>
+		<td><?php echo h($bichito['Bichito']['intensidadRojo']); ?>&nbsp;</td>
+		<td><?php echo h($bichito['Bichito']['intensidadVerde']); ?>&nbsp;</td>
+		<td class="actions">
+			<?php echo $this->Html->link(__('View'), array('action' => 'view', $bichito['Bichito']['id'])); ?>
+			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $bichito['Bichito']['id'])); ?>
+			<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $bichito['Bichito']['id']), null, __('Are you sure you want to delete # %s?', $bichito['Bichito']['id'])); ?>
+		</td>
+	</tr>
+<?php endforeach; ?>
+	</table>
+	<p>
+	<?php
+	echo $this->Paginator->counter(array(
+	'format' => __('Page {:page} of {:pages}, showing {:current} records out of {:count} total, starting on record {:start}, ending on {:end}')
+	));
+	?>	</p>
+
+	<div class="paging">
+	<?php
+		echo $this->Paginator->prev('< ' . __('previous'), array(), null, array('class' => 'prev disabled'));
+		echo $this->Paginator->numbers(array('separator' => ''));
+		echo $this->Paginator->next(__('next') . ' >', array(), null, array('class' => 'next disabled'));
+	?>
 	</div>
-	<div id="loading">
-		<img src="img/load.gif"/>
-	</div>
+</div>
+<div class="actions">
+	<h3><?php echo __('Actions'); ?></h3>
+	<ul>
+		<li><?php echo $this->Html->link(__('New Bichito'), array('action' => 'add')); ?></li>
+	</ul>
+</div>

@@ -58,10 +58,13 @@
 								<?= $this -> Html -> link('Inicio', array('controller' => 'bichitos', 'action' => 'index'), array('class' => 'alt')); ?>
 							</li>
 							<li>
-								<?= $this -> Html -> link('Color', array('controller' => 'bichitos', 'action' => 'colorear'), array('class' => 'alt')); ?>
+								<?= $this -> Html -> link('Accionar', array('controller' => 'bichitos', 'action' => 'accionar'), array('class' => 'alt')); ?>
 							</li>
 							<li>
-								<?= $this -> Html -> link('Dirección', array('controller' => 'bichitos', 'action' => 'direccionar'), array('class' => 'alt')); ?>
+								<?= $this -> Html -> link('Colorear', array('controller' => 'bichitos', 'action' => 'colorear'), array('class' => 'alt')); ?>
+							</li>
+							<li>
+								<?= $this -> Html -> link('Direccionar', array('controller' => 'bichitos', 'action' => 'direccionar'), array('class' => 'alt')); ?>
 							</li>
 						</ul>
 					</nav>

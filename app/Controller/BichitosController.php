@@ -98,60 +98,60 @@ class BichitosController extends AppController {
 	}
 
 	/**
-	 * asignar_accion method
+	 * accionar method
 	 *
 	 * @throws MethodNotAllowedException
 	 * @throws NotFoundException
 	 * @throws CakeException
 	 * @return void
 	 */
-	public function asignar_accion() {
-		if (!$this -> request -> is('post')) {
-			throw new MethodNotAllowedException();
-		}
-		$this -> layout = 'ajax';
+	public function accionar() {
+		if ($this -> request -> is('post')) {
+			$this -> layout = 'ajax';
 
-		# Se verifica que las variables requeridas estén definidas
-		if (isset($this -> request -> data['puerto']) && isset($this -> request -> data['direccion']) && isset($this -> request -> data['accion'])) {
-			# Se carga la clase requerida
-			App::import('Vendor', 'BichitoClass', array('file' => 'bichito.class.php'));
+			# Se verifica que las variables requeridas estén definidas
+			if (isset($this -> request -> data['puerto']) && isset($this -> request -> data['direccion']) && isset($this -> request -> data['accion'])) {
+				# Se carga la clase requerida
+				App::import('Vendor', 'BichitoClass', array('file' => 'bichito.class.php'));
 
-			# Definición de variables
-			$puerto = $this -> request -> data('puerto');
-			$direccion = $this -> request -> data('direccion');
-			$accion = $this -> request -> data('accion');
-			$pin = (isset($this -> request -> pin) && ($this -> request -> pin >= 0) && ($this -> request -> pin <= 3)) ? $this -> request -> pin : 0;
+				# Definición de variables
+				$puerto = $this -> request -> data('puerto');
+				$direccion = $this -> request -> data('direccion');
+				$accion = $this -> request -> data('accion');
+				$pin = (isset($this -> request -> data['pin']) && ($this -> request -> data('pin') >= 0) && ($this -> request -> data('pin') <= 3)) ? $this -> request -> data('pin') : 0;
 
-			# Se verifican los valores de las variables
-			if (($puerto >= 0) && ($direccion >= 0) && ($accion >= 0) && ($accion <= 1)) {
-				# Se inicializa la clase
-				$serial = new bichito();
+				# Se verifican los valores de las variables
+				if (($puerto >= 0) && ($direccion >= 0) && ($accion >= 0) && ($accion <= 1)) {
+					# Se inicializa la clase
+					$serial = new bichito();
 
-				# Definición del Puerto de Salida
-				# puerto = 0 >> ACM0 // puerto = 1 >> COM1
-				$puerto == 0 ? $puertoValido = $serial -> bichitoDefaultACM() : $puertoValido = $serial -> bichitoDefaultCOM();
-				if (!$puertoValido) {
-					throw new NotFoundException('Puerto Inválido', 401);
+					# Definición del Puerto de Salida
+					# puerto = 0 >> ACM0 // puerto = 1 >> COM1
+					$puerto == 0 ? $puertoValido = $serial -> bichitoDefaultACM() : $puertoValido = $serial -> bichitoDefaultCOM();
+					if (!$puertoValido) {
+						throw new NotFoundException('Puerto Inválido', 401);
+					}
+
+					// borrar
+					// $serial -> bichitoDefaultACM();
+
+					# Se abre una conexión con el dispositivo para escritura
+					$serial -> deviceOpen();
+
+					# Se le envía la acción
+					$serial -> accionar($direccion, $accion, $pin);
+
+					// borrar
+					// $serial -> colorear('20', '10', '1');
+					// $serial -> accionar('20', '1', '1');
+
+					# Se cierra la conexión con el dispositivo
+					$serial -> deviceClose();
 				}
-
-				// borrar
-				// $serial -> bichitoDefaultACM();
-
-				# Se abre una conexión con el dispositivo para escritura
-				$serial -> deviceOpen();
-
-				# Se le envía la acción
-				$serial -> accionar($direccion, $accion, $pin);
-
-				// borrar
-				// $serial -> colorear('20', '10', '1');
-				// $serial -> accionar('20', '1', '1');
-
-				# Se cierra la conexión con el dispositivo
-				$serial -> deviceClose();
+			} else {
+				throw new CakeException('Falta algún parámetro', 501);
 			}
-		} else {
-			throw new CakeException('Falta algún parámetro', 501);
+			$this -> render('default');
 		}
 	}
 
@@ -220,7 +220,7 @@ class BichitosController extends AppController {
 			if (isset($this -> request -> data['puerto']) && isset($this -> request -> data['direccion'])) {
 				# Se carga la clase requerida
 				App::import('Vendor', 'BichitoClass', array('file' => 'bichito.class.php'));
-				
+
 				# Definición de variables
 				$puerto = $this -> request -> data('puerto');
 				$direccion = $this -> request -> data('direccion');
