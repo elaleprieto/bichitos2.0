@@ -1,5 +1,8 @@
 <?php
 require("php_serial.class_cl.php");
+define('ROJO', 0);
+define('VERDE', 1);
+define('AZUL', 2);
 
 /**
  * Serial port control class
@@ -12,14 +15,14 @@ require("php_serial.class_cl.php");
  * @thanks Alec Avedisyan for help and testing with reading
  * @copyright under GPL 2 licence
  */
-class bichito extends phpSerial {
+class esclavo extends phpSerial {
 	
 	/**
 	 * Constructor. Perform some checks about the OS and setserial
 	 *
 	 * @return phpSerial
 	 */
-	//public function bichito() {
+	//public function esclavo() {
 	public function __construct() {
        return parent::__construct();
 	}
@@ -29,7 +32,7 @@ class bichito extends phpSerial {
 	 *
 	 * @return phpSerial
 	 */
-	public function bichitoDefaultACM() {
+	public function esclavoDefaultACM() {
 		//Specify the serial port to use... in this case COM1 <> ACM0 es el usb supuestamente
 		if($this -> deviceSet("ACM0")) {
 			//Set the serial port parameters. The documentation says 9600 8-N-1, so
@@ -48,7 +51,7 @@ class bichito extends phpSerial {
 	 *
 	 * @return phpSerial
 	 */
-	public function bichitoDefaultCOM() {
+	public function esclavoDefaultCOM() {
 		//Specify the serial port to use... in this case COM1 <> ACM0 es el usb supuestamente
 		if($this -> deviceSet("COM1")) {
 			//Set the serial port parameters. The documentation says 9600 8-N-1, so
@@ -121,12 +124,12 @@ class bichito extends phpSerial {
 	 
 	 
 	/**
-	 * colorear(): similar a write_single_register pero más humanizada
+	 * colorear: similar a write_single_register pero más humanizada
 	 * @param $direccion
 	 * @param $pin
-	 * @param $color
+	 * @param $intensidad
 	 */
-	 public function colorear($direccion, $color, $pin = 0) {
+	 public function colorear($direccion, $intensidad, $pin = 0) {
 	 	# function write_single_coil($address, $output_address, $output_value) {
 		# 	Significado de los valores:
 		# 		address         -> Direccion del dispositivo esclavo
@@ -136,7 +139,34 @@ class bichito extends phpSerial {
 		# 		output_value    -> Valor del PWM de 0 a 255
 		
 		// ComPort1.WriteStr(Chr(address) + Chr(5) + Chr(0) + Chr(output_address) + Chr(output_value));
-		$this -> sendMessage(chr($direccion) . chr(6) . chr(0) . chr($pin) . chr($color));
+		$this -> sendMessage(chr($direccion) . chr(6) . chr(0) . chr($pin) . chr($intensidad));
+	 }
+	 
+	 /**
+	 * colorearRojo
+	 * @param $direccion
+	 * @param $intensidad
+	 */
+	 public function colorearRojo($direccion, $intensidad) {
+	 	$this -> colorear($direccion, $intensidad, ROJO);
+	 }
+	 
+	 /**
+	 * colorearVerde
+	 * @param $direccion
+	 * @param $intensidad
+	 */
+	 public function colorearVerde($direccion, $intensidad) {
+	 	$this -> colorear($direccion, $intensidad, VERDE);
+	 }
+	 
+	 /**
+	 * colorearAzul
+	 * @param $direccion
+	 * @param $intensidad
+	 */
+	 public function colorearAzul($direccion, $intensidad) {
+	 	$this -> colorear($direccion, $intensidad, AZUL);
 	 }
 }
 ?>
