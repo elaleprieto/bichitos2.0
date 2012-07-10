@@ -27,7 +27,7 @@ class BichitosController extends AppController {
 	public function view($id = null) {
 		$this -> Bichito -> id = $id;
 		if (!$this -> Bichito -> exists()) {
-			throw new NotFoundException(__('Invalid bichito'));
+			throw new NotFoundException(__('Bichito inválido'));
 		}
 		$this -> set('bichito', $this -> Bichito -> read(null, $id));
 	}
@@ -41,10 +41,10 @@ class BichitosController extends AppController {
 		if ($this -> request -> is('post')) {
 			$this -> Bichito -> create();
 			if ($this -> Bichito -> save($this -> request -> data)) {
-				$this -> Session -> setFlash(__('The bichito has been saved'));
+				$this -> Session -> setFlash(__('El bichito ha sido guardado'));
 				$this -> redirect(array('action' => 'index'));
 			} else {
-				$this -> Session -> setFlash(__('The bichito could not be saved. Please, try again.'));
+				$this -> Session -> setFlash(__('El bichito no pudo ser guardado. Por favor, intente nuevamente.'));
 			}
 		}
 	}
@@ -59,14 +59,14 @@ class BichitosController extends AppController {
 	public function edit($id = null) {
 		$this -> Bichito -> id = $id;
 		if (!$this -> Bichito -> exists()) {
-			throw new NotFoundException(__('Invalid bichito'));
+			throw new NotFoundException(__('Bichito inválido'));
 		}
 		if ($this -> request -> is('post') || $this -> request -> is('put')) {
 			if ($this -> Bichito -> save($this -> request -> data)) {
-				$this -> Session -> setFlash(__('The bichito has been saved'));
+				$this -> Session -> setFlash(__('El bichito ha sido guardado'));
 				$this -> redirect(array('action' => 'index'));
 			} else {
-				$this -> Session -> setFlash(__('The bichito could not be saved. Please, try again.'));
+				$this -> Session -> setFlash(__('El bichito no pudo ser guardado. Por favor, intente nuevamente.'));
 			}
 		} else {
 			$this -> request -> data = $this -> Bichito -> read(null, $id);
@@ -87,13 +87,13 @@ class BichitosController extends AppController {
 		}
 		$this -> Bichito -> id = $id;
 		if (!$this -> Bichito -> exists()) {
-			throw new NotFoundException(__('Invalid bichito'));
+			throw new NotFoundException(__('Bichito inválido'));
 		}
 		if ($this -> Bichito -> delete()) {
-			$this -> Session -> setFlash(__('Bichito deleted'));
+			$this -> Session -> setFlash(__('Bichito eliminado'));
 			$this -> redirect(array('action' => 'index'));
 		}
-		$this -> Session -> setFlash(__('Bichito was not deleted'));
+		$this -> Session -> setFlash(__('El bichito no fue eliminado'));
 		$this -> redirect(array('action' => 'index'));
 	}
 
