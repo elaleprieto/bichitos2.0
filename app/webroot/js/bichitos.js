@@ -14,6 +14,25 @@ $(document).ready(function() {
 	$('#boton_apagar, #lamparita_index_on').click(function() {
 		apagarLamparita();
 	});
+
+	$('.colorSelector').each(function(index, element) {
+		$(this).ColorPicker({
+			color : '#ff9900',
+			// flat: true,
+			onShow : function(colpkr) {
+				$(colpkr).fadeIn(500);
+				return false;
+			},
+			onHide : function(colpkr) {
+				$(colpkr).fadeOut(500);
+				return false;
+			},
+			onChange : function(hsb, hex, rgb) {
+				$(element).css('backgroundColor', '#' + hex);
+				cambiarColor(element, rgb);
+			}
+		});
+	});
 });
 
 function verificarDireccion() {
@@ -47,9 +66,9 @@ function asignarDireccion() {
 			$('#mensaje').html('<h3>¡Bien! Se ha asignado la dirección.</h3>').fadeIn();
 		}).error(function(data, textStatus, texto) {
 			$('#loading').hide();
-			if(data.status == '501') {
+			if (data.status == '501') {
 				$('#mensaje').html('<h3 class="error">¡Cuidado! Se ha producido un error.</h3><p>(Ayuda: Puede que falte un parámetro.)</p>').fadeIn();
-			} else {							
+			} else {
 				$('#mensaje').html('<h3 class="error">¡Cuidado! Se ha producido un error.</h3><p>(Ayuda: Verifica el dispositivo elegido y los permisos.)</p>').fadeIn();
 			}
 		});
@@ -69,9 +88,9 @@ function asignarColor() {
 					$('#mensaje').html('<h3>¡Bien! Se ha asignado un color.</h3>').fadeIn();
 				}).error(function(data, textStatus, texto) {
 					$('#loading').hide();
-					if(data.status == '501') {
+					if (data.status == '501') {
 						$('#mensaje').html('<h3 class="error">¡Cuidado! Se ha producido un error.</h3><p>(Ayuda: Puede que falte un parámetro.)</p>').fadeIn();
-					} else {							
+					} else {
 						$('#mensaje').html('<h3 class="error">¡Cuidado! Se ha producido un error.</h3><p>(Ayuda: Verifica el dispositivo elegido y los permisos.)</p>').fadeIn();
 					}
 				});
@@ -95,7 +114,7 @@ function prenderLamparita() {
 				puerto : $('#puerto').val(),
 				direccion : $('#direccion').val(),
 				accion : '1',
-				pin: $('#pin').val()
+				pin : $('#pin').val()
 			}, function() {
 				$('#loading').hide();
 				$('#mensaje').html('<h3>Haz hecho clic sobre <span class="resaltar">Prender</span>, la luz debería estar prendida ahora.</h3>').fadeIn();
@@ -107,15 +126,15 @@ function prenderLamparita() {
 				$('#lampara').append(lamparita);
 			}).error(function(data, textStatus, texto) {
 				$('#loading').hide();
-				if(data.status == '501') {
+				if (data.status == '501') {
 					$('#mensaje').html('<h3 class="error">¡Cuidado! Se ha producido un error.</h3><p>(Ayuda: Puede que falte un parámetro.)</p>').fadeIn();
-				} else {							
+				} else {
 					$('#mensaje').html('<h3 class="error">¡Cuidado! Se ha producido un error.</h3><p>(Ayuda: Verifica el dispositivo elegido y los permisos.)</p>').fadeIn();
-				}								
+				}
 			});
 		} else {
-				$('#mensaje').html('<h3 class="error">¡Cuidado! Pin erróneo.</h3><p>(Ayuda: Escribe un número entre 0 y 3.)</p>').fadeIn();
-			}
+			$('#mensaje').html('<h3 class="error">¡Cuidado! Pin erróneo.</h3><p>(Ayuda: Escribe un número entre 0 y 3.)</p>').fadeIn();
+		}
 	} else {
 		$('#mensaje').html('<h3 class="error">¡Cuidado! No haz especificado una dirección.</h3><p>(Ayuda: Escribe una dirección válida.)</p>').fadeIn();
 	}
@@ -130,7 +149,7 @@ function apagarLamparita() {
 				puerto : $('#puerto').val(),
 				direccion : $('#direccion').val(),
 				accion : '0',
-				pin: $('#pin').val()
+				pin : $('#pin').val()
 			}, function() {
 				$('#loading').hide();
 				$('#mensaje').html('<h3>Haz hecho clic sobre <span class="resaltar">Apagar</span>, la luz debería estar apagada ahora.</h3>').fadeIn();
@@ -142,16 +161,29 @@ function apagarLamparita() {
 				$('#lampara').append(lamparita);
 			}).error(function(data, textStatus, texto) {
 				$('#loading').hide();
-				if(data.status == '501') {
+				if (data.status == '501') {
 					$('#mensaje').html('<h3 class="error">¡Cuidado! Se ha producido un error.</h3><p>(Ayuda: Puede que falte un parámetro.)</p>').fadeIn();
-				} else {							
+				} else {
 					$('#mensaje').html('<h3 class="error">¡Cuidado! Se ha producido un error.</h3><p>(Ayuda: Verifica el dispositivo elegido y los permisos.)</p>').fadeIn();
 				}
 			});
 		} else {
-				$('#mensaje').html('<h3 class="error">¡Cuidado! Pin erróneo.</h3><p>(Ayuda: Escribe un número entre 0 y 3.)</p>').fadeIn();
-			}
+			$('#mensaje').html('<h3 class="error">¡Cuidado! Pin erróneo.</h3><p>(Ayuda: Escribe un número entre 0 y 3.)</p>').fadeIn();
+		}
 	} else {
 		$('#mensaje').html('<h3 class="error">¡Cuidado! No haz especificado una dirección.</h3><p>(Ayuda: Escribe una dirección válida.)</p>').fadeIn();
 	}
+}
+
+/**
+ * cambiarColor: recibe un elemento y le cambia los valores de los 3 colores.
+ * @param {Object} elemento
+ * @param {Object} rgb
+ */
+function cambiarColor(elemento, rgb) {
+	var idElemento = $(elemento).attr('id');
+	
+	$("tr[title=" + idElemento +"] > td[title=rojo]").html(rgb['r']);
+	$("tr[title=" + idElemento +"] > td[title=verde]").html(rgb['g']);
+	$("tr[title=" + idElemento +"] > td[title=azul]").html(rgb['b']);
 }
