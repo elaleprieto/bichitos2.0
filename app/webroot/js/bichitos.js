@@ -186,4 +186,12 @@ function cambiarColor(elemento, rgb) {
 	$("tr[title=" + idElemento +"] > td[title=rojo]").html(rgb['r']);
 	$("tr[title=" + idElemento +"] > td[title=verde]").html(rgb['g']);
 	$("tr[title=" + idElemento +"] > td[title=azul]").html(rgb['b']);
+	
+	$.post(WEBROOT + "bichitos/colorin", {
+				id : $(elemento).attr('id'),
+				color: rgb
+			}, function() {
+				console.log('ok')
+			}
+	);
 }

@@ -112,7 +112,7 @@ class BichitosController extends AppController {
 			# Se verifica que las variables requeridas estén definidas
 			if (isset($this -> request -> data['puerto']) && isset($this -> request -> data['direccion']) && isset($this -> request -> data['accion'])) {
 				# Se carga la clase requerida
-				App::import('Vendor', 'BichitoClass', array('file' => 'bichito.class.php'));
+				App::import('Vendor', 'EsclavoClass', array('file' => 'esclavo.class.php'));
 
 				# Definición de variables
 				$puerto = $this -> request -> data('puerto');
@@ -123,17 +123,17 @@ class BichitosController extends AppController {
 				# Se verifican los valores de las variables
 				if (($puerto >= 0) && ($direccion >= 0) && ($accion >= 0) && ($accion <= 1)) {
 					# Se inicializa la clase
-					$serial = new bichito();
+					$serial = new esclavo();
 
 					# Definición del Puerto de Salida
 					# puerto = 0 >> ACM0 // puerto = 1 >> COM1
-					$puerto == 0 ? $puertoValido = $serial -> bichitoDefaultACM() : $puertoValido = $serial -> bichitoDefaultCOM();
+					$puerto == 0 ? $puertoValido = $serial -> esclavoDefaultACM() : $puertoValido = $serial -> esclavoDefaultCOM();
 					if (!$puertoValido) {
 						throw new NotFoundException('Puerto Inválido', 401);
 					}
 
 					// borrar
-					// $serial -> bichitoDefaultACM();
+					// $serial -> esclavoDefaultACM();
 
 					# Se abre una conexión con el dispositivo para escritura
 					$serial -> deviceOpen();
@@ -169,7 +169,7 @@ class BichitosController extends AppController {
 			# Se verifica que las variables requeridas estén definidas
 			if (isset($this -> request -> data['puerto']) && isset($this -> request -> data['direccion']) && isset($this -> request -> data['color'])) {
 				# Se carga la clase requerida
-				App::import('Vendor', 'BichitoClass', array('file' => 'bichito.class.php'));
+				App::import('Vendor', 'EsclavoClass', array('file' => 'esclavo.class.php'));
 
 				# Definición de variables
 				$puerto = $this -> request -> data('puerto');
@@ -180,11 +180,11 @@ class BichitosController extends AppController {
 				# Se verifican los valores de las variables
 				if (($puerto >= 0) && ($direccion >= 0) && ($color >= 0) && ($color <= 255)) {
 					# Se inicializa la clase
-					$serial = new bichito();
+					$serial = new esclavo();
 
 					# Definición del Puerto de Salida
 					# puerto = 0 >> ACM0 // puerto = 1 >> COM1
-					$puerto == 0 ? $puertoValido = $serial -> bichitoDefaultACM() : $puertoValido = $serial -> bichitoDefaultCOM();
+					$puerto == 0 ? $puertoValido = $serial -> esclavoDefaultACM() : $puertoValido = $serial -> esclavoDefaultCOM();
 					if (!$puertoValido) {
 						throw new NotFoundException('Puerto Inválido', 401);
 					}
@@ -194,6 +194,62 @@ class BichitosController extends AppController {
 
 					# Se le envía el color
 					$serial -> colorear($direccion, $color, $pin);
+
+					# Se cierra la conexión con el dispositivo
+					$serial -> deviceClose();
+				}
+			} else {
+				throw new CakeException('Falta algún parámetro', 501);
+			}
+			$this -> render('default');
+		}
+	}
+
+	/**
+	 * colorin method
+	 *
+	 * @throws NotFoundException
+	 * @throws CakeException
+	 * @param puerto: ACM0 ó COM1
+	 * @param direccion
+	 * @param color: array(r,g,b)
+	 * @return void
+	 */
+	public function colorin() {
+		if ($this -> request -> is('post')) {
+			$this -> layout = 'ajax';
+
+			# Se verifica que las variables requeridas estén definidas
+			if (isset($this -> request -> data['id']) && isset($this -> request -> data['color'])) {
+				# Se carga la clase requerida
+				App::import('Vendor', 'EsclavoClass', array('file' => 'esclavo.class.php'));
+
+				# Definición de variables
+				$this -> Bichito -> id = $this -> request -> data('id');
+				$puerto = 1;
+				$direccion = $this -> Bichito -> field('direccion');
+				$color = $this -> request -> data('color');
+				//$pin = (isset($this -> request -> data['pin']) && ($this -> request -> data('pin') >= 0) && ($this -> request -> data('pin') <= 3)) ? $this -> request -> data('pin') : 0;
+
+				# Se verifican los valores de las variables
+				if (($color['r'] >= 0) && ($color['r'] <= 255) && ($color['g'] >= 0) && ($color['g'] <= 255) && ($color['b'] >= 0) && ($color['b'] <= 255)) {
+					# Se inicializa la clase
+					$serial = new esclavo();
+
+					# Definición del Puerto de Salida
+					# puerto = 0 >> ACM0 // puerto = 1 >> COM1
+					$puerto == 0 ? $puertoValido = $serial -> esclavoDefaultACM() : $puertoValido = $serial -> esclavoDefaultCOM();
+					if (!$puertoValido) {
+						throw new NotFoundException('Puerto Inválido', 401);
+					}
+
+					# Se abre una conexión con el dispositivo para escritura
+					$serial -> deviceOpen();
+
+					# Se setean los colores
+					$serial -> colorearRojo($direccion, $color['r']);
+					$serial -> colorearVerde($direccion, $color['g']);
+					$serial -> colorearAzul($direccion, $color['b']);
 
 					# Se cierra la conexión con el dispositivo
 					$serial -> deviceClose();
@@ -219,7 +275,7 @@ class BichitosController extends AppController {
 			# Verficiación de variables
 			if (isset($this -> request -> data['puerto']) && isset($this -> request -> data['direccion'])) {
 				# Se carga la clase requerida
-				App::import('Vendor', 'BichitoClass', array('file' => 'bichito.class.php'));
+				App::import('Vendor', 'EsclavoClass', array('file' => 'esclavo.class.php'));
 
 				# Definición de variables
 				$puerto = $this -> request -> data('puerto');
@@ -228,11 +284,11 @@ class BichitosController extends AppController {
 				# Se verifican los valores de las variables
 				if (($puerto >= 0) && ($direccion >= 0)) {
 					# Initialización de la clase
-					$serial = new bichito();
+					$serial = new esclavo();
 
 					# Definición del Puerto de Salida
 					# puerto = 0 >> ACM0 // puerto = 1 >> COM1
-					$puerto == 0 ? $puertoValido = $serial -> bichitoDefaultACM() : $puertoValido = $serial -> bichitoDefaultCOM();
+					$puerto == 0 ? $puertoValido = $serial -> esclavoDefaultACM() : $puertoValido = $serial -> esclavoDefaultCOM();
 					if (!$puertoValido) {
 						throw new NotFoundException('Puerto Inválido', 401);
 					}
