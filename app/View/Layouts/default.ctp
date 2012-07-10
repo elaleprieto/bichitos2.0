@@ -34,8 +34,13 @@
 		echo $this -> Html -> css('style');
 		echo $this -> Html -> css('estilos');
 
+		# jQuery fallback
 		echo $this -> Html -> script('http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js');
+		$jsLocal = '<script src="'.$this -> Html-> url('/', true).'js/jquery-1.7.1.min.js">x3C/script>';
+		echo $this -> Html -> scriptBlock('window.jQuery || document.write(\''.$jsLocal.'\')');
+
 		echo $this -> Html -> script('http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.5.3/modernizr.min.js');
+		
 		echo $this -> Html -> script('bichitos');
 
 		echo $this -> fetch('meta');
