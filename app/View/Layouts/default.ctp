@@ -27,12 +27,12 @@
 	<head>
 		<?php echo $this -> Html -> charset(); ?>
 		<title> Bichitos :: <?php echo $title_for_layout; ?> </title>
+		<link href="/bichitos2.0/css/bichitos.less" type="text/css" rel="stylesheet/less">
 		<?php
 		echo $this -> Html -> meta('icon');
 
 		echo $this -> Html -> css('cake.generic');
 		echo $this -> Html -> css('style');
-		echo $this -> Html -> css('estilos');
 
 		# jQuery fallback
 		echo $this -> Html -> script('http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js');
@@ -40,6 +40,7 @@
 		echo $this -> Html -> scriptBlock('window.jQuery || document.write(\''.$jsLocal.'\')');
 
 		echo $this -> Html -> script('http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.5.3/modernizr.min.js');
+		echo $this -> Html -> script('less-1.3.0.min');
 		
 		echo $this -> Html -> script('bichitos');
 
