@@ -4,11 +4,6 @@ echo $this -> Html -> css('colorpicker/colorpicker');
 
 //<script type="text/javascript" src="js/colorpicker.js"></script>
 echo $this -> Html -> script('colorpicker/colorpicker');
-
-# Variables
-$potencia = 3;
-$dimmer = 255;
-
 ?>
 <div class="bichitos index">
 	<h2><?php echo __('Bichitos'); ?></h2>
