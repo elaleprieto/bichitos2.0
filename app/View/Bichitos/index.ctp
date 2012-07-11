@@ -4,6 +4,11 @@ echo $this -> Html -> css('colorpicker/colorpicker');
 
 //<script type="text/javascript" src="js/colorpicker.js"></script>
 echo $this -> Html -> script('colorpicker/colorpicker');
+
+# Variables
+$potencia = 3;
+$dimmer = 255;
+
 ?>
 <div class="bichitos index">
 	<h2><?php echo __('Bichitos'); ?></h2>
@@ -15,6 +20,10 @@ echo $this -> Html -> script('colorpicker/colorpicker');
 			<th><?php echo $this -> Paginator -> sort('intensidadRojo', 'Rojo'); ?></th>
 			<th><?php echo $this -> Paginator -> sort('intensidadVerde', 'Verde'); ?></th>
 			<th><?php echo $this -> Paginator -> sort('intensidadAzul', 'Azul'); ?></th>
+			<th><?php echo $this -> Paginator -> sort('potenciaRojo', 'Potencia Rojo [W]'); ?></th>
+			<th><?php echo $this -> Paginator -> sort('potenciaVerde', 'Potencia Verde [W]'); ?></th>
+			<th><?php echo $this -> Paginator -> sort('potenciaAzul', 'Potencia Azul [W]'); ?></th>
+			<th><?php echo $this -> Paginator -> sort('potenciaTotal', 'Potencia Total [W]'); ?></th>
 			<th>Color</th>
 			<th class="actions"><?php echo __('Acciones'); ?></th>
 	</tr>
@@ -27,6 +36,10 @@ echo $this -> Html -> script('colorpicker/colorpicker');
 		<td title="rojo"><?php echo h($bichito['Bichito']['intensidadRojo']); ?>&nbsp;</td>
 		<td title="verde"><?php echo h($bichito['Bichito']['intensidadVerde']); ?>&nbsp;</td>
 		<td title="azul"><?php echo h($bichito['Bichito']['intensidadAzul']); ?>&nbsp;</td>
+		<td title="consumo"><?php echo sprintf('%.3f', $bichito['Bichito']['potenciaRojo']); ?>&nbsp;</td>
+		<td title="consumo"><?php echo sprintf('%.3f', $bichito['Bichito']['potenciaVerde']); ?>&nbsp;</td>
+		<td title="consumo"><?php echo sprintf('%.3f', $bichito['Bichito']['potenciaAzul']); ?>&nbsp;</td>
+		<td title="consumo"><?php echo sprintf('%.3f', $bichito['Bichito']['potenciaTotal']); ?>&nbsp;</td>
 		<td>
 			<div class="colorSelector" id="<?=$bichito['Bichito']['id'] ?>" title="Clic aquí para cambiar el color.">
 				<div style="background-color: #0000ff"></div>
