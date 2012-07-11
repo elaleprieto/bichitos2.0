@@ -32,36 +32,36 @@ class Bichito extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		'intensidadAzul' => array(
-			'numeric' => array(
-				'rule' => array('numeric'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-			),
-		),
-		'intensidadRojo' => array(
-			'numeric' => array(
-				'rule' => array('numeric'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-			),
-		),
-		'intensidadVerde' => array(
-			'numeric' => array(
-				'rule' => array('numeric'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-			),
-		),
+		// 'intensidadAzul' => array(
+			// 'numeric' => array(
+				// 'rule' => array('numeric'),
+				// //'message' => 'Your custom message here',
+				// //'allowEmpty' => false,
+				// //'required' => false,
+				// //'last' => false, // Stop validation after this rule
+				// //'on' => 'create', // Limit validation to 'create' or 'update' operations
+			// ),
+		// ),
+		// 'intensidadRojo' => array(
+			// 'numeric' => array(
+				// 'rule' => array('numeric'),
+				// //'message' => 'Your custom message here',
+				// //'allowEmpty' => false,
+				// //'required' => false,
+				// //'last' => false, // Stop validation after this rule
+				// //'on' => 'create', // Limit validation to 'create' or 'update' operations
+			// ),
+		// ),
+		// 'intensidadVerde' => array(
+			// 'numeric' => array(
+				// 'rule' => array('numeric'),
+				// //'message' => 'Your custom message here',
+				// //'allowEmpty' => false,
+				// //'required' => false,
+				// //'last' => false, // Stop validation after this rule
+				// //'on' => 'create', // Limit validation to 'create' or 'update' operations
+			// ),
+		// ),
 	);
 	
 	/**
@@ -71,7 +71,7 @@ class Bichito extends AppModel {
 	 */
 	public function afterFind($results) {
 	    foreach ($results as $key => $val) {
-	        if (isset($val['Bichito'])) {
+	        if (isset($val['Bichito']['intensidadRojo'])) {
 	        	# Cálculo de Potencias por Color
 	           	$results[$key]['Bichito']['potenciaRojo'] = $this->calculoPotencia($val['Bichito']['intensidadRojo']);
 	            $results[$key]['Bichito']['potenciaVerde'] = $this->calculoPotencia($val['Bichito']['intensidadVerde']);
@@ -96,5 +96,11 @@ class Bichito extends AppModel {
 		$dimmer = 255;
 		
 	    return $potencia * $intensidad / $dimmer;
+	}
+	
+	public function saveColores($colores) {
+		$this -> saveField('intensidadRojo', $colores['r']);
+		$this -> saveField('intensidadVerde', $colores['g']);
+		$this -> saveField('intensidadAzul', $colores['b']);
 	}
 }

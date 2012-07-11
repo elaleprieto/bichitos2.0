@@ -36,10 +36,10 @@ $dimmer = 255;
 		<td title="rojo"><?php echo h($bichito['Bichito']['intensidadRojo']); ?>&nbsp;</td>
 		<td title="verde"><?php echo h($bichito['Bichito']['intensidadVerde']); ?>&nbsp;</td>
 		<td title="azul"><?php echo h($bichito['Bichito']['intensidadAzul']); ?>&nbsp;</td>
-		<td title="consumo"><?php echo sprintf('%.3f', $bichito['Bichito']['potenciaRojo']); ?>&nbsp;</td>
-		<td title="consumo"><?php echo sprintf('%.3f', $bichito['Bichito']['potenciaVerde']); ?>&nbsp;</td>
-		<td title="consumo"><?php echo sprintf('%.3f', $bichito['Bichito']['potenciaAzul']); ?>&nbsp;</td>
-		<td title="consumo"><?php echo sprintf('%.3f', $bichito['Bichito']['potenciaTotal']); ?>&nbsp;</td>
+		<td name="potenciaRojo"><?php echo sprintf('%.3f', $bichito['Bichito']['potenciaRojo']); ?>&nbsp;</td>
+		<td name="potenciaVerde"><?php echo sprintf('%.3f', $bichito['Bichito']['potenciaVerde']); ?>&nbsp;</td>
+		<td name="potenciaAzul"><?php echo sprintf('%.3f', $bichito['Bichito']['potenciaAzul']); ?>&nbsp;</td>
+		<td name="potenciaTotal"><?php echo sprintf('%.3f', $bichito['Bichito']['potenciaTotal']); ?>&nbsp;</td>
 		<td>
 			<div class="colorSelector" id="<?=$bichito['Bichito']['id'] ?>" title="Clic aquí para cambiar el color.">
 				<div style="background-color: #0000ff"></div>

@@ -6,6 +6,7 @@ App::uses('AppController', 'Controller');
  * @property Bichito $Bichito
  */
 class BichitosController extends AppController {
+	private $puertoUSB = 1;
 
 	/**
 	 * index method
@@ -226,7 +227,7 @@ class BichitosController extends AppController {
 
 				# Definición de variables
 				$this -> Bichito -> id = $this -> request -> data('id');
-				$puerto = 1;
+				$puerto = $this -> puertoUSB;
 				$direccion = $this -> Bichito -> field('direccion');
 				$color = $this -> request -> data('color');
 				//$pin = (isset($this -> request -> data['pin']) && ($this -> request -> data('pin') >= 0) && ($this -> request -> data('pin') <= 3)) ? $this -> request -> data('pin') : 0;
@@ -247,12 +248,13 @@ class BichitosController extends AppController {
 					$serial -> deviceOpen();
 
 					# Se setean los colores
-					$serial -> colorearRojo($direccion, $color['r']);
-					$serial -> colorearVerde($direccion, $color['g']);
-					$serial -> colorearAzul($direccion, $color['b']);
+					$serial -> colorearRGB($direccion, $color);
 
 					# Se cierra la conexión con el dispositivo
 					$serial -> deviceClose();
+					
+					# Se guardan los nuevos valores
+					$this -> Bichito -> saveColores($color);
 				}
 			} else {
 				throw new CakeException('Falta algún parámetro', 501);
@@ -306,6 +308,19 @@ class BichitosController extends AppController {
 				throw new CakeException('Falta algún parámetro', 501);
 			}
 			$this -> render('default');
+		}
+	}
+
+	/**
+	 * get_bichito($id): obtiene los datos del bichito.
+	 * @param id: el bichito buscado.
+	 */
+	function get_bichito($id = null) {
+		$this -> layout = 'ajax';
+		if ($id) {
+			# busco el bichito
+			$this -> Bichito -> recursive = 0;
+			$this -> set('bichito', $this -> Bichito -> findById($id));
 		}
 	}
 

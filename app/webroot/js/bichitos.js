@@ -183,15 +183,36 @@ function apagarLamparita() {
 function cambiarColor(elemento, rgb) {
 	var idElemento = $(elemento).attr('id');
 	
-	$("tr[title=" + idElemento +"] > td[title=rojo]").html(rgb['r']);
-	$("tr[title=" + idElemento +"] > td[title=verde]").html(rgb['g']);
-	$("tr[title=" + idElemento +"] > td[title=azul]").html(rgb['b']);
+	// $("tr[title=" + idElemento +"] > td[title=rojo]").html(rgb['r']);
+	// $("tr[title=" + idElemento +"] > td[title=verde]").html(rgb['g']);
+	// $("tr[title=" + idElemento +"] > td[title=azul]").html(rgb['b']);
 	
 	$.post(WEBROOT + "bichitos/colorin", {
 				id : $(elemento).attr('id'),
 				color: rgb
 			}, function() {
-				console.log('ok')
+				actualizarValores(elemento);
 			}
 	);
+}
+
+/**
+ * actualizarValores
+ * @param {Object} elemento
+ */
+function actualizarValores(elemento) {
+	var elementoId = $(elemento).attr('id');
+	var url = WEBROOT + "bichitos/get_bichito/" + elementoId;
+	
+	/* Se obtienen los valores del bichito */
+	$.getJSON(url, function(data) {
+		console.log(data);
+		$("tr[title=" + elementoId +"] > td[title=rojo]").html(data.intensidadRojo);
+		$("tr[title=" + elementoId +"] > td[title=verde]").html(data.intensidadVerde);
+		$("tr[title=" + elementoId +"] > td[title=azul]").html(data.intensidadAzul);
+		$("tr[title=" + elementoId +"] > td[name=potenciaRojo]").html(data.potenciaRojo.toFixed(3));
+		$("tr[title=" + elementoId +"] > td[name=potenciaVerde]").html(data.potenciaVerde.toFixed(3));
+		$("tr[title=" + elementoId +"] > td[name=potenciaAzul]").html(data.potenciaAzul.toFixed(3));
+		$("tr[title=" + elementoId +"] > td[name=potenciaTotal]").html(data.potenciaTotal.toFixed(3));
+	});
 }
