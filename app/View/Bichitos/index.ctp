@@ -1,14 +1,11 @@
 <?php
-//<link rel="stylesheet" media="screen" type="text/css" href="css/colorpicker.css" />
-echo $this -> Html -> css('colorpicker/colorpicker');
+# Se cargan los estilos
+// echo $this -> Html -> css('colorpicker/colorpicker');
+echo $this -> Html -> css('minicolors/jquery.miniColors');
 
-//<script type="text/javascript" src="js/colorpicker.js"></script>
-echo $this -> Html -> script('colorpicker/colorpicker');
-
-# Variables
-$potencia = 3;
-$dimmer = 255;
-
+# Se cargan las librerías
+// echo $this -> Html -> script('colorpicker/colorpicker');
+echo $this -> Html -> script('minicolors/jquery.miniColors');
 ?>
 <div class="bichitos index">
 	<h2><?php echo __('Bichitos'); ?></h2>
@@ -41,9 +38,10 @@ $dimmer = 255;
 		<td name="potenciaAzul"><?php echo sprintf('%.3f', $bichito['Bichito']['potenciaAzul']); ?>&nbsp;</td>
 		<td name="potenciaTotal"><?php echo sprintf('%.3f', $bichito['Bichito']['potenciaTotal']); ?>&nbsp;</td>
 		<td>
-			<div class="colorSelector" id="<?=$bichito['Bichito']['id'] ?>" title="Clic aquí para cambiar el color.">
+			<!-- <div class="colorSelector" id="<?=$bichito['Bichito']['id'] ?>" title="Clic aquí para cambiar el color.">
 				<div style="background-color: #0000ff"></div>
-			</div>
+			</div> -->
+			<input class="colorSelector" type="hidden" id="<?=$bichito['Bichito']['id'] ?>"/>
 		</td>
 		<td class="actions">
 			<?php echo $this -> Html -> link(__('Ver'), array('action' => 'view', $bichito['Bichito']['id'])); ?>

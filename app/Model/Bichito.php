@@ -5,6 +5,7 @@ App::uses('AppModel', 'Model');
  *
  */
 class Bichito extends AppModel {
+	public $order = "Bichito.id ASC";
 
 /**
  * Validation rules
