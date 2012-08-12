@@ -323,5 +323,9 @@ class BichitosController extends AppController {
 			$this -> set('bichito', $this -> Bichito -> findById($id));
 		}
 	}
+	
+	function parallax() {
+		
+	}
 
 }

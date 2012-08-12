@@ -27,7 +27,7 @@
 	<head>
 		<?php echo $this -> Html -> charset(); ?>
 		<title> Bichitos :: <?php echo $title_for_layout; ?> </title>
-		<link href="/bichitos2.0/css/bichitos.less" type="text/css" rel="stylesheet/less">
+		<link href="<?=$this->Html->url("/", TRUE)?>css/bichitos.less" type="text/css" rel="stylesheet/less">
 		<?php
 		echo $this -> Html -> meta('icon');
 
