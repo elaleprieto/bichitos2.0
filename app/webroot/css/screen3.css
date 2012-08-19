@@ -1,518 +1,86 @@
-html, body, div, span, applet, object, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, img, small, strong, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, input, table, caption, tbody, tfoot, thead, tr, th, td {
-    border: 0 none;
-    margin: 0;
-    padding: 0;
-}
-
-ul, li {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-}
-img, nav, section, article, header {
+#ul_parallax {
+    top: 280px;
     display: block;
+    position: absolute;
+    background: none;
+    padding-left:30px;
 }
 
-a:active {
-    outline: medium none;
-}
-nav {
+#nav_parallax {
+	background: url("../img/cele/menu.png") repeat-y  0 0 transparent;
     height: 100%;
-    left: 0;
     overflow: hidden;
     position: fixed;
-    width: 400px;
+    width: 350px;
+    
+    margin-top:82px;
 }
-#contenido {
+
+#content_parallax {
     height: 100%;
-    margin: 0 0 0 447px;
-    padding-left: 36px;
-    padding-top: 50px;
+    margin: 0 0 0 460px;
+    margin-top: 50px;
+    padding-top: 0px;
     top: 0;
-    width: 800px;
+	width: 800px;
 	position: absolute;
 }
-section {
-    display: block;
-    height: 1000px;
-}
+
 #nav-logo {
     display: block;
     float: left;
-    height: 116px;
-    margin: 76px 0 0 89px;
-    width: 116px;
+    margin: 20px 0 0 50px;
+    background:none;
 }
-nav ul {
-   
-    display: block;
-    height: 333px;
-    left: 0;
-    position: absolute;
-    top: 350px;
-}
-nav li {
-    display: block;
-    left: 0;
-    position: relative;
-    width: 435px;
-    z-index: 2;
-    padding-top: 10px;
-}
-nav li div.first {
-    position: relative;
-    z-index: 2;
-}    
- li div.first span {
-    background: url("../img/nav-txt-m.png") repeat scroll 0 0 transparent;
-    display: block;
-    left: 52px;
-    position: absolute;
-    text-indent: -9999px;
-    width: 220px;
-}
-li div.second {
-    display: block;
-    height: 49px;
-    left: 235px;
-    position: absolute;
-    text-indent: -9999px;
-    top: 0;
-    width: 200px;
-    z-index: 1;
-}
-nav a {
+
+.nav_a_parallax {
     cursor: pointer;
     display: block;
-    outline: medium none;
+    background: none;
+    width: 30px;
+    
 }
-#nav-1 div.first {
-    height: 49px;
-}
-#nav-1 div.first {
-    background-position: 0 0;
-}
-#nav-1 span {
-    background-position: 0 0;
-    height: 49px;
-}
-#nav-2 div.first {
-    height: 49px;
-}
-#nav-2 div.first {
-    background-position: 0 -49px;
-}
-#nav-2 span {
-    background-position: 0 -49px;
-    height: 49px;
-}
-#nav-3 div.first {
-    height: 50px;
-}
-#nav-3 div.first {
-    background-position: 0 -98px;
-}
-#nav-3 span {
-    background-position: 0 -98px;
-    height: 50px;
-}
-#nav-4 div.first {
-    height: 49px;
-}
-#nav-4 div.first {
-    background-position: 0 -148px;
-}
-#nav-4 span {
-    background-position: 0 -148px;
-    height: 49px;
-}
-#nav-1 div.second {
-    background-position: 0 0;
-}
-#nav-2 div.second {
-    background-position: 0 -49px;
-}
-#nav-3 div.second {
-    background-position: 0 -98px;
-}
-#nav-4 div.second {
-    background-position: 0 -148px;
-}
+
 #disenio {
-    padding-top: 80px;
-    position: relative;
-}
-#sistemas{
-	padding-top: 80px;
-   position: relative;
-}
-#electronica{
-	padding-top: 80px;
-   position: relative;
-}
-#disenio header {
-    height: 430px;
-}
-
-#disenio h1{
-	color: #D6D6C2;	
-}
-
-#hello h1 {
-    height: 115px;
-    left: 186px;
-    position: absolute;
-    text-indent: -9999px;
-    top: 149px;
-    width: 440px;
-}
-#hello p {
-    height: 240px;
-    left: 315px;
-    position: absolute;
-    text-indent: -9999px;
-    top: 265px;
-    width: 320px;
-}
-#hello h2 {
-    border-bottom: 1px solid #FFFFFF;
-    height: 48px;
-    margin: 20px 0 0;
-    padding-bottom: 42px;
-    text-indent: -9999px;
-    width: 619px;
-}
-#sistemas header {
-    height: 460px;
-    position: relative;
-}
-#whoarewe h1 {
-    bottom: 20px;
-    height: 42px;
-    left: 0;
-    position: absolute;
-    text-indent: -9999px;
-    width: 350px;
-}
-#sistemas h2, #whatwedo h2 {
-    text-indent: -9999px;
-}
-#sistemas h2#h-waw-1 {
-    background-position: 0 -180px;
-    height: 30px;
-    margin: 30px 0 12px;
-}
-#sistemas h2#h-waw-2 {
-    background-position: 0 -220px;
-    height: 30px;
-    margin: 20px 0 12px;
-}
-#sistemas h2#h-waw-3 {
-    background-position: 0 -260px;
-    height: 50px;
-    margin: 20px 0 12px;
-}
-#sistemas h2#h-wwd-1 {
-    background-position: 0 -380px;
-    height: 30px;
-    margin: 30px 0 12px;
-}
-#electronica h2#h-wwd-2 {
-    background-position: 0 -420px;
-    height: 80px;
-    margin: 20px 0 12px;
-}
-#electronica p {
-    font: 12px/26px tahoma,arial,sans;
-    margin: 0 20px 20px 0;
-    text-align: justify;
-}
-#electronica ul {
     display: block;
-    margin: 12px 170px 20px 0;
-}
-#electronica li {
-    display: block;
-    font: 12px/22px tahoma,arial,sans;
-    padding: 0 0 0 22px;
-}
-#electronica header {
-    height: 260px;
-    position: relative;
-}
-#electronica h2 {
-    bottom: 20px;
-    height: 42px;
-    left: 0;
-    position: absolute;
-    text-indent: -9999px;
-    width: 350px;
-}
-#electronica p {
-    font: 16px/26px tahoma,arial,sans;
-    margin: 0 20px 12px 0;
-    text-align: justify;
-}
-#electronica ul {
-    display: block;
-    margin: 12px 20px 20px 0;
-}
-#electronica li {
-    display: block;
-    font: 12px/22px tahoma,arial,sans;
-    padding: 0 0 0 22px;
-}
-#electronica h2{
-    text-indent: -9999px;
-}
-#culturaLibre header {
-    height: 130px;
-    position: relative;
-}
-#culturaLibre h1 {
-    bottom: 20px;
-    height: 42px;
-    left: 0;
-    position: absolute;
-    text-indent: -9999px;
-    width: 350px;
-}
-#work-wrapper {
-    height: 550px;
-    overflow: hidden;
-    position: relative;
-}
-#work-container {
-    height: 550px;
-    position: absolute;
-    width: 10000px;
-}
-.work-entries {
-    float: left;
-    height: 550px;
-    position: relative;
-    width: 630px;
-    z-index: 300;
-}
-#work-nav {
-    height: 20px;
-    padding: 27px 0 20px;
-}
-#work-nav a {
-    cursor: pointer;
-    display: block;
-    height: 20px;
-    text-indent: -9999px;
-}
-a.prev {
-    float: left;
-    width: 130px;
-}
-a.next {
-    float: right;
-    width: 90px;
-}
-#ourworks article.entry {
-    float: left;
-    height: 182px;
-    padding-right: 23px;
-    position: relative;
-    width: 187px;
-    z-index: 40;
-}
-.entry div.thumbnail {
-    height: 97px;
-    margin-bottom: 20px;
-    padding: 6px;
-    position: relative;
-    width: 175px;
-}
-div.thumbnail img {
-    left: 6px;
-    position: absolute;
-    top: 6px;
-}
-.on-top {
-    z-index: 20;
-}
-.on-stack {
-    z-index: 19;
-}
-.entry h2 {
-    font: 11px/19px tahoma,arial,sans;
-    padding-left: 7px;
-    position: relative;
-    text-transform: uppercase;
-}
-.entry a.link {
-    display: block;
-    font: 11px/19px tahoma,arial,sans;
-    padding-left: 7px;
-    position: relative;
-    text-decoration: none;
-    text-transform: uppercase;
-}
-div.info {
-    background: url("../img/bg-info.png") repeat scroll 0 0 transparent;
-    display: none;
-    height: 291px;
-    padding: 0 23px;
-    position: absolute;
-    width: 187px;
-}
-div.info h3 {
-    font: bold 11px/11px tahoma,arial,sans;
-    padding: 24px 0 8px 35px;
-}
-div.info ul {
-    display: block;
-    padding: 0 10px 0 16px;
-}
-div.info li {
-    display: block;
-    font: 11px/24px tahoma,arial,sans;
-    height: 24px;
-    padding-left: 20px;
-}
-div.info a:link, div.info a:visited {
-    bottom: 28px;
-    font: bold 11px/11px tahoma,arial,sans;
-    left: 58px;
-    position: absolute;
-    text-decoration: underline;
-}
-div.info.rt {
-    left: 187px;
-    top: 0;
-}
-div.info.lt {
-    left: -233px;
-    top: 0;
-}
-div.info.rb {
-    left: 187px;
-    top: -182px;
-}
-div.info.lb {
-    left: -233px;
-    top: -182px;
-}
-span.arrow {
-    background: url("../img/bg-info-arrows.png") no-repeat scroll 0 0 transparent;
-    display: block;
-    height: 25px;
-    position: absolute;
-    width: 23px;
-}
-span.arrow.rt {
-    background-position: 0 0;
-    left: 0;
-    top: 9px;
-}
-span.arrow.lt {
-    background-position: -23px 0;
-    right: 0;
-    top: -1px;
-}
-span.arrow.rb {
-    background-position: 0 -25px;
-    bottom: -1px;
-    left: 0;
-}
-span.arrow.lb {
-    background-position: -23px -25px;
-    bottom: 8px;
-    right: 0;
-}
-#getintouch header {
-    height: 240px;
-    position: relative;
-}
-#getintouch h1 {
-    bottom: 20px;
-    height: 42px;
-    left: 0;
-    position: absolute;
-    text-indent: -9999px;
-    width: 350px;
-}
-#contact-info {
-    float: left;
-    width: 170px;
-}
-#contact-info ul {
-    margin-bottom: 8px;
-    padding: 30px 0 10px;
-}
-#contact-info li {
-    font: 14px/24px tahoma,arial,sans;
-}
-#contact-info p, #contact-info p a {
-    font: bold 12px/24px tahoma,arial,sans;
-}
-form#f-contact {
-    display: block;
-    float: right;
-    margin-top: 26px;
-    width: 420px;
-}
-#f-contact input {
-    font: 12px/27px tahoma,arial,sans;
-    height: 27px;
-    margin-bottom: 16px;
-    padding: 4px 10px;
-    width: 392px;
-}
-input:focus, textarea:focus {
-    outline: medium none;
-}
-#f-contact textarea {
-    border: medium none;
-    font: 12px/16px tahoma,arial,sans;
-    height: 185px;
-    margin-bottom: 16px;
-    overflow: auto;
-    padding: 10px;
-    width: 392px;
-}
-#f-contact input#button-submit {
-    cursor: pointer;
-    display: block;
-    height: 35px;
-    position: absolute;
-    right: 9px;
-    text-indent: -9999px;
-    width: 100px;
-}
-input#button-submit:focus, input#button-submit:active {
-    outline: medium none;
-}
-input#button-submit::-moz-focus-inner {
-    border: 0 none;
-}
-#f-contact div#f-feedback {
-    height: 55px;
-    position: relative;
-    width: 412px;
-}
-#f-contact p {
-    display: none;
-    float: left;
-    font: bold 12px/16px tahoma,arial,sans;
-    width: 260px;
-}
-p.error {
+    height: 1000px;
     padding-top: 10px;
-}
-#sent {
-    padding-top: 0;
-}
-#loader {
-    display: none;
-    height: 35px;
-    position: absolute;
-    right: 9px;
-    width: 100px;
-    z-index: 50;
+    position: relative;
+    
 }
 
+#sistemas{
+    display: block;
+    height: 1000px;
+	padding-top: 80px;
+   position: relative;
+}
+
+#electronica{
+    display: block;
+    height: 1000px;
+	padding-top: 80px;
+   position: relative;
+}
+
+#culturaLibre{
+    display: block;
+    height: 1000px;
+	padding-top: 80px;
+   position: relative;
+}
+.header_parallax{
+	background:none
+}
+
+.nav-item{
+    position: relative;
+    width: 300px;
+    background: none;
+
+	}
+	
+.menu_parallax{
+	background:none;
+	
+}

@@ -1,50 +1,31 @@
-@charset "utf-8";
-body {
-    background: url("../img/fondo.png") repeat fixed 0 0 #B83D01;
+#body_parallax {
+    background: url("../img/cele/fondo.png") repeat fixed 0 0 ;
 }
 
- .back .middleback .middlefront .logo{   
-	width:600px; 
-	height:2000px; 
-	background:url("../img/iconosgrande21.png") no-repeat; 
-	position: absolute;
 
-}
  .back .middlefront{   
-	width:1000px; 
+	width:920px; 
 	height:2500px;
-	background:url("../img/iconosgrande1.png") no-repeat; 
+	background:url("../img/cele/iconosgrande1.png") no-repeat; 
 	position: absolute;
 	margin-left: 370px;
 	margin-top: 2000px;
 }
-	.back .middleback{
-	width:1000px; 
+.back .middleback{
+	width:920px; 
 	height:2500px; 
-	background:url("../img/iconosgrande2.png") no-repeat;
+	background:url("../img/cele/iconosgrande2.png") no-repeat;
 	position: absolute;
 	margin-left: 375px;
-	margin-top: 10px;		
+	margin-top: 30px;		
 }
 .back .middleback .middlefront{
-	width:1000px; 
+	width:920px; 
 	height:4000px; 	
-	background:url("../img/iconosgrande1.png") no-repeat;
+	background:url("../img/cele/iconosgrande1.png") no-repeat;
 	position: absolute;
 	margin-left: 10px;
 	margin-bottom: 200px;	
-			
-	
-	}
-
-nav {
-    background: url("../img/menu.png") repeat-y fixed 0 0 transparent;
-}
-
-
-#disenio {
-    padding-top: 100px;
-    position: relative;
 }
 
 #estructura	{
@@ -86,7 +67,6 @@ nav {
 	position: absolute;
 }
 #antena {
-	padding-top: -20px;
 	height:500px;
 	width: 350px;
 	padding-left: 40px;
@@ -99,27 +79,13 @@ nav {
 	height: 150px;
 	width: 160px;
 	}
-#columna1{
+	
+.columna{
 	padding-left: 730px;
 	position:absolute;
 	width: 60px;		 
 	}
-#columna2{
-	padding-left: 730px;
-	position: absolute;
-	width: 60px;
-		 
-	}	
-#columna3{
-	padding-left: 730px;
-	position:absolute;
-	width: 60px;	 
-	}
-#columna4{
-	padding-left: 730px;
-	position:absolute;
-	width: 65px;	 
-	}
+
 #cuadradoColor{
 	height: 125px;
 	width: 150px;
@@ -138,16 +104,6 @@ nav {
 	position: absolute;
 	}
 
-#sistemas p {
-    color: #2E0F00;
-    text-shadow: 1px 1px 0 #DD510D;
-}
-#electronica p {
-    color: #2E0F00;
-    text-shadow: 1px 1px 0 #DD510D;
-}
-
-
 #lineas{
 	padding-top: 300px;
 	padding-left: 130px;
@@ -157,97 +113,48 @@ nav {
 #cuadradoColor3{
 	position: relative;
 	padding-left: 50px;
-	padding-top: -10px;
 	height: 125px;
 	width: 150px;	
-	}
-
-
-#work-wrapper {
-    height: 550px;
-    overflow: hidden;
-    position: relative;
 }
 
-.entry h2 {
-    border-bottom: 1px solid #DD510D;
-    color: #FFFFFF;
-}
-.entry a.link {
-    color: #000000;
-}
-div.info h3 {
-    color: #B83D01;
-}
 
-div.info a:link, div.info a:visited {
-    color: #B83D01;
-}
-
-#contact-info ul {
-    border-bottom: 1px solid #DD510D;
-}
-#contact-info li {
-    color: #2E0F00;
-    text-shadow: 1px 1px 0 #DD510D;
-}
-#contact-info p, #contact-info p a {
-    color: #2E0F00;
-    text-shadow: 1px 1px 0 #DD510D;
-}
-
-#f-contact div#f-feedback {
-    border-bottom: 1px solid #DD510D;
-}
-p.error {
-    color: #FFF713;
-}
-#sent {
-    color: #FFFFFF;
-}
-
-.menu{
-	padding-left: 75px;
-	
-}
 #colorido1{
 	position: absolute;
-	margin-top: 392px;
-	margin-left: 72px;
+	margin-top: 460px;
+	margin-left: 530px;
 
 	}
 	
 #colorido2{
 	position: absolute;
-	margin-top:425px;
-	margin-left: 100px;
+	margin-top:1575px;
+	margin-left: 570px;
 
 	}
 
 #colorido3{
 	position: absolute;
-	margin-top:450px;
-	margin-left: 360px;
+	margin-top:2675px;
+	margin-left: 820px;
 
 	}		
 #colorido4{
 	position: absolute;
-	margin-top:435px;
-	margin-left: 190px;
+	margin-top:3740px;
+	margin-left: 650px;
 
 	}
-#The_colorPicker{
-	position:absolute;
-	width:224px;
-	padding-bottom:1px;
-	background-color:#FFF;
-	border:1px solid #317082;
-}
-#lienzo{
+
+#lienzo1{
 	position: absolute;
 }
+#lienzo2{
+	position: absolute;
+}
+
 #lienzo3{
-
 	position: absolute;
 }
-
+#lienzo4{
+	position: absolute;
+}
