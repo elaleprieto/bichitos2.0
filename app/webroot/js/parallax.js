@@ -96,12 +96,12 @@ function actualizarValores(elemento, rgb) {
 			lienzo.lineTo(405, 65);
 		}
 		if(elementoId == '2'){
-			lienzo.moveTo(350,80);
-			lienzo.lineTo(389,455);
-			lienzo.lineTo(485,485);
-			lienzo.lineTo(545,445);
-			lienzo.lineTo(550, 72);
-			lienzo.lineTo(455, 65);
+			lienzo.moveTo(348,128);
+			lienzo.lineTo(385,500);
+			lienzo.lineTo(480,532);
+			lienzo.lineTo(542,490);
+			lienzo.lineTo(545, 118);
+			lienzo.lineTo(455, 105);
 		}
 		if(elementoId == '3'){
 			lienzo.moveTo(0,80);
