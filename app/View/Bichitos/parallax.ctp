@@ -1,142 +1,136 @@
 <?php
-echo $this -> Html -> css(array("style3", "screen3", "colorpicker", "layout"));
-echo $this -> Html -> script(array("jquery-1.7.1.min", "colorpicker", "eye", "utils", "layout", "parallax", "canvas", "", "", "", "", "", ""));
+echo $this -> Html -> css(array("style3", "screen3"));
+echo $this -> Html -> script(array("jquery-1.7.1.min",  "parallax"));
+
+# Se cargan los estilos
+// echo $this -> Html -> css('colorpicker/colorpicker');
+echo $this -> Html -> css("minicolors/jquery.miniColors");
+
+# Se cargan las librerías
+// echo $this -> Html -> script('colorpicker/colorpicker');
+echo $this -> Html -> script("minicolors/Celejquery.miniColors");
+
 ?>
-<!-- Menu de opciones-->
-	<nav>
-		<a id="nav-logo" href="#hello" >
-			<?=$this -> Html -> image("cele/logo.png")?>
+<body id="body_parallax" >
+
+	<!-- Menu de opciones -->
+	<nav id="nav_parallax">
+		<a id="nav-logo" >
+			<?=$this -> Html -> image('cele/logo.png')?>
 		</a>
 		
-		<ul>
-			<!-- diseño -->		
-			<li id="nav-1">
-				<a href="#disenio" >
-					<img class="menu" src="img/botones/diseño.png"></img>
+		<ul id="ul_parallax">
+			<!-- menu disenio -->		
+			<li class="nav-item">
+				<a href="#disenio" class="nav_a_parallax">
+					<?=$this ->Html -> image('cele/botones/disenio.png', array('class' => 'menu_parallax'))?>
 				</a>
 			</li>
 
-			<li id="nav-2">
-				<a href="#sistemas">
-					<img class="menu" src="img/botones/software.png"></img>
+			<!-- menu sistemas -->
+			<li class="nav-item">
+				<a href="#sistemas" class="nav_a_parallax">
+					<?=$this -> Html -> image('cele/botones/software.png', array('class' => 'menu_parallax'))?>
 				</a>
 			</li>
 			
-			<li id="nav-3">
-				<a href="#electronica">
-					<img class="menu" src="img/botones/hardware.png"></img>
+			<!-- menu electronica -->
+			<li class="nav-item">
+				<a href="#electronica" class="nav_a_parallax">
+					<?=$this -> Html -> image('cele/botones/hardware.png', array('class' => 'menu_parallax'))?>
 				</a>			
 			</li>
-			<li id="nav-4" class="off">
-				<a href="#culturaLibre">
-					<img class="menu" src="img/botones/culturalibre.png"></img>
+			
+			<!-- menu cultura libre -->
+			<li class="nav-item">
+				<a href="#culturaLibre" class="nav_a_parallax">
+					<?=$this -> Html -> image('cele/botones/culturalibre.png', array('class' => 'menu_parallax'))?>
 				</a>			
 			</li>	
 		</ul>
-		
 	</nav>
-<div class="back">
-<div class="back">
-	<div class="middleback">
-		<div class="middlefront">
-			<div class="logo">
+	
+	<!-- Parallax -->
+	<div class="back">
+		<div class="back">
+			<div class="middleback">
+				<div class="middlefront">
+					<div class="logo">
+					</div>
+				</div>
 			</div>
 		</div>
-	</div>
-</div>
 	
-	<div id="contenido">
-			
-		<section id="disenio" style="min-height: 350px;">
-			<header>
-					
-				<img src="img/columna.png" id="columna1"></img>
-				<canvas id="lienzo" width="600" height="620">
-				</canvas>	
-				<img src="img/estructura.png" id="estructura"></img>
-						
-				<div >
-					<div id="colorido1">					
-						<div id="colorSelector">
-		    				<div style="background-color: #ffffff">
-		    				</div>
-						</div>
-					</div>
-				</div>
+	<!-- Contenido principal -->
+	<div id="content_parallax">
+
+		<!-- contenido disenio -->			
+		<section id="disenio">
+			<header class="header_parallax">
 				
-				<img src="img/herramientas.png" id="herramientas"></img>		
+				<?=$this -> Html -> image('cele/columna.png', array('class' => 'columna'))?>
+				
+				<!-- Lienzo para pintar el fondo de la estructura de disenio -->
+				<canvas id="lienzo1" width="600" height="500">
+				</canvas>	
+				<?=$this -> Html -> image('cele/estructura.png', array('id' => 'estructura'))?>
+				<?=$this -> Html -> image('cele/herramientas.png', array('id' => 'herramientas'))?>	
 							
 			</header>
-		
-			<p>
-			</p>
-		
 		</section>	
-		
-		<section id="sistemas" style="min-height: 350px;">
-			<header>
+	
+		<!-- contenido sistemas-->		
+		<section id="sistemas">
+			<header class="header_parallax">
 				<div >
-					<img src="img/columna3.png" id="columna2"></img>
+					<?=$this -> Html -> image('cele/columna3.png', array('class' => 'columna'))?>	
+					
+					<!-- Lienzo para pintar el fondo de la estructura de sistemas-->
+					<canvas id="lienzo2" width="600px" height="620px">
+					</canvas>
+					<?=$this -> Html -> image('cele/estructura.png', array('id' => 'estructura2'))?>	
+					<?=$this -> Html -> image('cele/antena.gif', array('id' => 'antena'))?>							
+			</header>
+		</section>
+		
+		<!-- contenido electronica -->
+		<section id="electronica">
+			<header class="header_parallax">
+				<div>
+					<!-- Lienzo para pintar el fondo de la estrucutra de electronica -->
 					<canvas id="lienzo3" width="600px" height="620px">
 					</canvas>
-					<img src="img/estructura.png" id="estructura2"></img>	
-					
-					<img src="img/antena.gif" id="antena"></img>
-					<div id="colorido2">
-			    		<div id="colorSelector">
-	   		 			<div style="background-color: #ffffff">
-	    					</div>
-		    			</div>
-		    		</div>
-					
-			</header>
-			<p>
-			</p>
-		</section>
-		<section id="electronica" style="min-height: 350px;">
-			<header>
-			<!--					
-					<div >
-					<img src="img/columna2.png" id="columna3"></img>
-					<img src="img/estructura.png" id="estructura"></img>	
-					<img src="img/lineas.gif" id="lineas"></img>
-					<img src="img/color.png" id="cuadradoColor3"></img>				
-				</div>
--->	
-				<div>
-					<img src="img/columna2.png" id="columna3"></img>
-					<img src="img/estructura.png" id="estructura3"></img>	
-					<img src="img/otrolado.gif" id="lineasOtroLado"></img>	
-					<div id="colorido3">					
-						<div id="colorSelector">
-	    					<div style="background-color: #ffffff">
-	    					</div>
-						</div>
-					</div>	
+					<?=$this -> Html -> image('cele/columna2.png', array('class' => 'columna'))?>	
+					<?=$this -> Html -> image('cele/estructura.png', array('id' => 'estructura3'))?>	
+					<?=$this -> Html -> image('cele/otrolado.gif', array('id' => 'lineasOtroLado'))?>		
 				</div>
 			</header>
-			<p>
-			</p>
 		</section>
 
-		<section id="culturaLibre" style="min-height: 350px;">
-			<header>
-			<div>
-				<img src="img/columna4.png" id="columna4"></img>
-				<img src="img/estructura.png" id="estructura4"></img>	
-				<img src="img/acuarela.png" id="acuarela"></img>	
-				<div id="colorido4">					
-					<div id="colorSelector">
-    					<div style="background-color: #ffffff">
-    					</div>
-					</div>
-				</div>	
-			</div>
+		<!-- contenido cultura libre -->
+		<section id="culturaLibre">
+			<header class="header_parallax">
+				<div>
+					<!-- Lienzo para pintar el fondo de la estructura de cultura libre -->
+					<canvas id="lienzo4" width="600px" height="620px">
+					</canvas>
+					<?=$this -> Html -> image('cele/columna4.png', array('class' => 'columna'))?>	
+					<?=$this -> Html -> image('cele/estructura.png', array('id' => 'estructura4'))?>
+					<?=$this -> Html -> image('cele/acuarela.png', array('id' => 'acuarela'))?>	
+				</div>
 			</header>
-			<p>
-			</p>	
-		
 		</section>
 
 	</div>
 </div>
+
+<!-- Cuadrados de selección del color de las estructuras -->
+	<div>
+		<?php
+			foreach ($bichitos as $bichito): ?>
+			<div id="colorido<?=$bichito['Bichito']['id']?>">
+			<input class="colorSelector" type="hidden" id="<?=$bichito['Bichito']['id'] ?>"/>
+			</div>
+			<?php endforeach; ?>
+	</div>
+</body>
