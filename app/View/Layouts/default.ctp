@@ -72,6 +72,9 @@
 							<li>
 								<?= $this -> Html -> link('Direccionar', array('controller' => 'bichitos', 'action' => 'direccionar'), array('class' => 'alt')); ?>
 							</li>
+							<li>
+								<?= $this -> Html -> link('Parallax', array('controller' => 'bichitos', 'action' => 'parallax'), array('class' => 'alt')); ?>
+							</li>
 						</ul>
 					</nav>
 				</div>
