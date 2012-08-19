@@ -325,6 +325,9 @@ class BichitosController extends AppController {
 	}
 	
 	function parallax() {
+		$this -> layout = 'layoutParallax';
+		$this -> Bichito -> recursive = 0;
+		$this -> set('bichitos', $this -> paginate());
 		
 	}
 
