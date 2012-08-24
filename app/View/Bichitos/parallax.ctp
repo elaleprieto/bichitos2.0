@@ -8,7 +8,7 @@ echo $this -> Html -> css("minicolors/jquery.miniColors");
 
 # Se cargan las librerías
 // echo $this -> Html -> script('colorpicker/colorpicker');
-echo $this -> Html -> script("minicolors/Celejquery.miniColors");
+echo $this -> Html -> script("minicolors/jquery.miniColors");
 
 ?>
 <body id="body_parallax" >
@@ -77,6 +77,7 @@ echo $this -> Html -> script("minicolors/Celejquery.miniColors");
 				<?=$this -> Html -> image('cele/herramientas.png', array('id' => 'herramientas'))?>	
 							
 			</header>
+			
 		</section>	
 	
 		<!-- contenido sistemas-->		
