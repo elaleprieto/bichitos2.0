@@ -181,7 +181,7 @@ class esclavo extends phpSerial {
 	 }
 	 
 	 /**
-	  * accionarRGB: prende todas las luces, es para usar con colorearRGB
+	  * accionarRGB: prende todas las luces de los bichitos, es para usar con colorearRGB
 	  * @param
 	  * 
 	  */
