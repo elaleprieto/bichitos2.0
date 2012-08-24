@@ -1,0 +1,86 @@
+#ul_parallax {
+    top: 280px;
+    display: block;
+    position: absolute;
+    background: none;
+    padding-left:30px;
+}
+
+#nav_parallax {
+	background: url("../img/cele/menu.png") repeat-y  0 0 transparent;
+    height: 100%;
+    overflow: hidden;
+    position: fixed;
+    width: 350px;
+    
+    margin-top:82px;
+}
+
+#content_parallax {
+    height: 100%;
+    margin: 0 0 0 460px;
+    margin-top: 50px;
+    padding-top: 0px;
+    top: 0;
+	width: 800px;
+	position: absolute;
+}
+
+#nav-logo {
+    display: block;
+    float: left;
+    margin: 20px 0 0 50px;
+    background:none;
+}
+
+.nav_a_parallax {
+    cursor: pointer;
+    display: block;
+    background: none;
+    width: 30px;
+    
+}
+
+#disenio {
+    display: block;
+    height: 1000px;
+    padding-top: 10px;
+    position: relative;
+    
+}
+
+#sistemas{
+    display: block;
+    height: 1000px;
+	padding-top: 80px;
+   position: relative;
+}
+
+#electronica{
+    display: block;
+    height: 1000px;
+	padding-top: 80px;
+   position: relative;
+}
+
+#culturaLibre{
+    display: block;
+    height: 1000px;
+	padding-top: 80px;
+   position: relative;
+}
+.header_parallax{
+	background:none
+}
+
+.nav-item{
+    position: relative;
+    width: 300px;
+    background: none;
+
+	}
+	
+.menu_parallax{
+	background:none;
+	
+}

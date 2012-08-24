@@ -27,7 +27,7 @@
 	<head>
 		<?php echo $this -> Html -> charset(); ?>
 		<title> Bichitos :: <?php echo $title_for_layout; ?> </title>
-		<link href="/bichitos2.0/css/bichitos.less" type="text/css" rel="stylesheet/less">
+		<link href="<?=$this->Html->url("/", TRUE)?>css/bichitos.less" type="text/css" rel="stylesheet/less">
 		<?php
 		echo $this -> Html -> meta('icon');
 
@@ -71,6 +71,9 @@
 							</li>
 							<li>
 								<?= $this -> Html -> link('Direccionar', array('controller' => 'bichitos', 'action' => 'direccionar'), array('class' => 'alt')); ?>
+							</li>
+							<li>
+								<?= $this -> Html -> link('Parallax', array('controller' => 'bichitos', 'action' => 'parallax'), array('class' => 'alt')); ?>
 							</li>
 						</ul>
 					</nav>

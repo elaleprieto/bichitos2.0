@@ -1,0 +1,160 @@
+#body_parallax {
+    background: url("../img/cele/fondo.png") repeat fixed 0 0 ;
+}
+
+
+ .back .middlefront{   
+	width:920px; 
+	height:2500px;
+	background:url("../img/cele/iconosgrande1.png") no-repeat; 
+	position: absolute;
+	margin-left: 370px;
+	margin-top: 2000px;
+}
+.back .middleback{
+	width:920px; 
+	height:2500px; 
+	background:url("../img/cele/iconosgrande2.png") no-repeat;
+	position: absolute;
+	margin-left: 375px;
+	margin-top: 30px;		
+}
+.back .middleback .middlefront{
+	width:920px; 
+	height:4000px; 	
+	background:url("../img/cele/iconosgrande1.png") no-repeat;
+	position: absolute;
+	margin-left: 10px;
+	margin-bottom: 200px;	
+}
+
+#estructura	{
+	padding-top: 60px;
+	padding-left: 300px;
+	height: 430px;
+	width: 200px;
+	position: absolute;
+	}
+
+#estructura2	{
+	padding-top: 105px;
+	padding-left: 345px;
+	height: 430px;
+	width: 200px;
+	position: absolute;
+}
+
+#estructura3	{
+	padding-top: 60px;
+	padding-left: 1px;
+	height: 430px;
+	width: 200px;
+	position: absolute;
+	}
+
+#estructura4	{
+	padding-top: 60px;
+	padding-left: 280px;
+	height: 430px;
+	width: 200px;
+	position: absolute;
+	}
+	
+#lineasOtroLado{
+	padding-top: 320px;
+	padding-left: 190px;
+	width: 220px;
+	position: absolute;
+}
+#antena {
+	height:500px;
+	width: 350px;
+	padding-left: 40px;
+	position: absolute;
+}
+
+#antena2{
+	position: absolute;	
+	padding-left: 200px;
+	height: 150px;
+	width: 160px;
+	}
+	
+.columna{
+	padding-left: 730px;
+	position:absolute;
+	width: 60px;		 
+	}
+
+#cuadradoColor{
+	height: 125px;
+	width: 150px;
+	}
+
+#herramientas{
+	padding-top: 60px;
+	height: 436.5px;
+	width: 150px;	
+	}	
+
+#acuarela{
+	padding-top: 170px;
+	padding-left: 80px;
+	width: 320px;
+	position: absolute;
+	}
+
+#lineas{
+	padding-top: 300px;
+	padding-left: 130px;
+	width: 220px;
+	
+	}
+#cuadradoColor3{
+	position: relative;
+	padding-left: 50px;
+	height: 125px;
+	width: 150px;	
+}
+
+
+#colorido1{
+	position: absolute;
+	margin-top: 460px;
+	margin-left: 530px;
+
+	}
+	
+#colorido2{
+	position: absolute;
+	margin-top:1575px;
+	margin-left: 570px;
+
+	}
+
+#colorido3{
+	position: absolute;
+	margin-top:2675px;
+	margin-left: 820px;
+
+	}		
+#colorido4{
+	position: absolute;
+	margin-top:3740px;
+	margin-left: 650px;
+
+	}
+
+#lienzo1{
+	position: absolute;
+}
+#lienzo2{
+	position: absolute;
+}
+
+#lienzo3{
+	position: absolute;
+}
+#lienzo4{
+	position: absolute;
+}
