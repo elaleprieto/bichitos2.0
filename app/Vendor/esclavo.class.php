@@ -179,5 +179,17 @@ class esclavo extends phpSerial {
 		$this -> colorearVerde($direccion, $colores['g']);
 		$this -> colorearAzul($direccion, $colores['b']);
 	 }
+	 
+	 /**
+	  * accionarRGB: prende todas las luces, es para usar con colorearRGB
+	  * @param
+	  * 
+	  */
+	  public function accionarRGB($direccion) {
+	  		$this -> accionar($direccion, 1, 0); //R
+	  		$this -> accionar($direccion, 1, 1); //G
+	  		$this -> accionar($direccion, 1, 2); //B
+	  }
+	  
 }
 ?>
