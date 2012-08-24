@@ -250,7 +250,7 @@ class BichitosController extends AppController {
 					# Se setean los colores
 					$serial -> colorearRGB($direccion, $color);
 					
-					#Se prenden todas las luces
+					#Se prenden todas las luces de los bichitos
 					$serial -> accionarRGB($direccion);
 
 					# Se cierra la conexión con el dispositivo
