@@ -177,6 +177,22 @@ if(jQuery) (function($) {
 				// Prevent text selection in IE
 				selector.bind('selectstart', function() { return false; });
 				
+				$(document).bind('mouseup.miniColors', function(event) {
+					var testSubject = $(event.target).parents().andSelf();
+					
+					if( testSubject.hasClass('miniColors-colors') ) {
+						event.preventDefault();
+						input.data('moving', 'colors');
+						moveColor(input, event);
+					}
+					
+					if( testSubject.hasClass('miniColors-hues') ) {
+						event.preventDefault();
+						input.data('moving', 'hues');
+						moveHue(input, event);
+					}
+				});
+				
 				$(document).bind('mousedown.miniColors touchstart.miniColors', function(event) {
 					
 					input.data('mousebutton', 1);
@@ -292,7 +308,7 @@ if(jQuery) (function($) {
 				hsb.b = b;
 				
 				// Set color
-				setColor(input, hsb, true);
+				setColor(input, hsb, true, event);
 			};
 			
 			var moveHue = function(input, event) {
@@ -326,11 +342,11 @@ if(jQuery) (function($) {
 				hsb.h = h;
 				
 				// Set color
-				setColor(input, hsb, true);
+				setColor(input, hsb, true, event);
 				
 			};
 			
-			var setColor = function(input, hsb, updateInput) {
+			var setColor = function(input, hsb, updateInput, event) {
 				input.data('hsb', hsb);
 				var hex = hsb2hex(hsb);	
 				if( updateInput ) input.val( '#' + convertCase(hex, input.data('letterCase')) );
@@ -340,8 +356,10 @@ if(jQuery) (function($) {
 				// Fire change callback
 				if( input.data('change') ) {
 					if( hex === input.data('lastChange') ) return;
-					input.data('change').call(input.get(0), '#' + hex, hsb2rgb(hsb));
-					input.data('lastChange', hex);
+					if(event.type == 'mouseup') {
+						input.data('change').call(input.get(0), '#' + hex, hsb2rgb(hsb));
+						input.data('lastChange', hex);
+					}
 				}
 				
 			};
