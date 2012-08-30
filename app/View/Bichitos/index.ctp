@@ -1,6 +1,7 @@
 <?php
 # Se cargan los estilos
 // echo $this -> Html -> css('colorpicker/colorpicker');
+echo $this -> Html -> css('bichitos/index');
 echo $this -> Html -> css('minicolors/jquery.miniColors');
 
 # Se cargan las librerías
@@ -22,7 +23,6 @@ echo $this -> Html -> script('minicolors/jquery.miniColors');
 			<th><?php echo $this -> Paginator -> sort('potenciaAzul', 'Potencia Azul [W]'); ?></th>
 			<th><?php echo $this -> Paginator -> sort('potenciaTotal', 'Potencia Total [W]'); ?></th>
 			<th>Color</th>
-			<th class="actions"><?php echo __('Acciones'); ?></th>
 	</tr>
 	<?php
 	foreach ($bichitos as $bichito): ?>
@@ -43,30 +43,7 @@ echo $this -> Html -> script('minicolors/jquery.miniColors');
 			</div> -->
 			<input class="colorSelector" type="hidden" id="<?=$bichito['Bichito']['id'] ?>"/>
 		</td>
-		<td class="actions">
-			<?php echo $this -> Html -> link(__('Ver'), array('action' => 'view', $bichito['Bichito']['id'])); ?>
-			<?php echo $this -> Html -> link(__('Editar'), array('action' => 'edit', $bichito['Bichito']['id'])); ?>
-			<?php echo $this -> Form -> postLink(__('Borrar'), array('action' => 'delete', $bichito['Bichito']['id']), null, __('¿Está seguro que quiere eliminar el Bichito # %s?', $bichito['Bichito']['id'])); ?>
-		</td>
 	</tr>
 <?php endforeach; ?>
 	</table>
-	<p>
-	<?php
-	echo $this -> Paginator -> counter(array('format' => __('Página {:page} de {:pages}, mostrando el registro {:current} de un total de {:count}, empezando en el registro {:start}, terminando en {:end}.')));
-	?>	</p>
-
-	<div class="paging">
-	<?php
-	echo $this -> Paginator -> prev('< ' . __('anterior'), array(), null, array('class' => 'prev disabled'));
-	echo $this -> Paginator -> numbers(array('separator' => ''));
-	echo $this -> Paginator -> next(__('siguiente') . ' >', array(), null, array('class' => 'next disabled'));
-	?>
-	</div>
-</div>
-<div class="actions">
-	<h3><?php echo __('Acciones'); ?></h3>
-	<ul>
-		<li><?php echo $this -> Html -> link(__('Crear Bichito'), array('action' => 'add')); ?></li>
-	</ul>
 </div>
