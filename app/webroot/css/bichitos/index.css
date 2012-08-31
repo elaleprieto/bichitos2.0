@@ -5,3 +5,18 @@ div.index {
   border: none;
   padding: 0;
 }
+
+/* line 8, ../../sass/bichitos/index.scss */
+.miniColors-selector {
+  width: 20px;
+}
+
+/* line 12, ../../sass/bichitos/index.scss */
+.miniColors-colors {
+  display: none;
+}
+
+/* line 16, ../../sass/bichitos/index.scss */
+.miniColors-hues {
+  left: 5px;
+}

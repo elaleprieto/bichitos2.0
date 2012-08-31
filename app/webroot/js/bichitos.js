@@ -34,7 +34,9 @@ $(document).ready(function() {
 		// });
 	// });
 	$('.colorSelector').each(function(index, element) {
+		$(this).val('ff9900');
 		$(this).miniColors({
+			
 			change : function(hex, rgb) {
 				$(element).css('backgroundColor', '#' + hex);
 				cambiarColor(element, rgb);

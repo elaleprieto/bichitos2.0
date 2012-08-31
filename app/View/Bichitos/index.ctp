@@ -1,11 +1,8 @@
 <?php
 # Se cargan los estilos
-// echo $this -> Html -> css('colorpicker/colorpicker');
-echo $this -> Html -> css('bichitos/index');
-echo $this -> Html -> css('minicolors/jquery.miniColors');
+echo $this -> Html -> css(array('minicolors/jquery.miniColors', 'bichitos/index'));
 
 # Se cargan las librerías
-// echo $this -> Html -> script('colorpicker/colorpicker');
 echo $this -> Html -> script('minicolors/jquery.miniColors');
 ?>
 <div class="bichitos index">

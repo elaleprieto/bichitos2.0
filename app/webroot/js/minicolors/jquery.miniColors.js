@@ -135,13 +135,14 @@ if(jQuery) (function($) {
 				hide();				
 				
 				// Generate the selector
+				var ajusteX = 5;
 				var selector = $('<div class="miniColors-selector"></div>');
 				selector
 					.append('<div class="miniColors-colors" style="background-color: #FFF;"><div class="miniColors-colorPicker"><div class="miniColors-colorPicker-inner"></div></div>')
 					.append('<div class="miniColors-hues"><div class="miniColors-huePicker"></div></div>')
 					.css({
 						top: input.is(':visible') ? input.offset().top + input.outerHeight() : input.data('trigger').offset().top + input.data('trigger').outerHeight(),
-						left: input.is(':visible') ? input.offset().left : input.data('trigger').offset().left,
+						left: input.is(':visible') ? input.offset().left - ajusteX : input.data('trigger').offset().left - ajusteX,
 						display: 'none'
 					})
 					.addClass( input.attr('class') );
@@ -158,7 +159,7 @@ if(jQuery) (function($) {
 				selector.find('.miniColors-colorPicker')
 					.css('top', colorPosition.y + 'px')
 					.css('left', colorPosition.x + 'px');
-				
+					
 				// Set huePicker position
 				var huePosition = input.data('huePosition');
 				if( !huePosition ) huePosition = getHuePositionFromHSB(hsb);
@@ -326,7 +327,9 @@ if(jQuery) (function($) {
 					position.y = event.originalEvent.changedTouches[0].pageY;
 				}
 				
-				position.y = position.y - input.data('selector').find('.miniColors-colors').offset().top - 1;
+				// position.y = position.y - input.data('selector').find('.miniColors-colors').offset().top - 1;
+				var ajuste = 7; // no sé por qué todavía...
+				position.y = position.y - input.data('selector').offset().top - ajuste;
 				if( position.y <= -1 ) position.y = -1;
 				if( position.y >= 149 ) position.y = 149;
 				input.data('huePosition', position);
