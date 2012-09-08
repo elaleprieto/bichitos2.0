@@ -26,13 +26,13 @@
 	<!--<![endif]-->
 	<head>
 		<?php echo $this -> Html -> charset(); ?>
-		<title> Bichitos :: <?php echo $title_for_layout; ?> </title>
-		<link href="<?=$this->Html->url("/", TRUE)?>css/bichitos.less" type="text/css" rel="stylesheet/less">
+		<title> Colectivo Libre :: LibreLEDs :: <?php echo $title_for_layout; ?> </title>
 		<?php
 		echo $this -> Html -> meta('icon');
 
 		echo $this -> Html -> css('cake.generic');
 		echo $this -> Html -> css('style');
+		echo $this -> Html -> css('default');
 
 		# jQuery fallback
 		echo $this -> Html -> script('http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js');
@@ -40,7 +40,6 @@
 		echo $this -> Html -> scriptBlock('window.jQuery || document.write(\''.$jsLocal.'\')');
 
 		echo $this -> Html -> script('http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.5.3/modernizr.min.js');
-		echo $this -> Html -> script('less-1.3.0.min');
 		
 		echo $this -> Html -> script('bichitos');
 
@@ -57,7 +56,7 @@
 			<header class="span2">
 				<div class="inner cf">
 					<h1 class="alt span1 head"> <?= $this -> Html -> image('bug128.png', array('class' => 'bug')); ?>
-					Bichitos para Todos </h1>
+					LibreLEDs :: Bichitos Libres </h1>
 					<nav class="span1 col">
 						<ul class="cf">
 							<li>

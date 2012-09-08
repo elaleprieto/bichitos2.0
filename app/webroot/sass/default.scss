@@ -1,0 +1,131 @@
+$verde: #155511;
+$verde-oscuro: #398235;
+$gris: #CCCCCC;
+
+h1 {
+  text-align: center;
+  color: $verde-oscuro;
+}
+h3 {
+  text-align: center;
+  color: $verde-oscuro;
+  font-size: 100%;
+  font-weight: bold;
+}
+p {
+  text-align: center;
+}
+fieldset {
+  border: 1px solid $gris;
+  margin-bottom: 1em;
+  padding: 16px 20px;
+
+  legend {
+    color: $verde-oscuro;
+    font-size: 200%;
+    font-weight: bold;
+  }
+}
+
+a {
+  color: $verde;
+  
+  &:hover {
+    color: $verde-oscuro;
+  }
+}
+
+table tr {
+  td, th {
+    text-align: center;
+  }
+  th {
+    color: $verde;
+  }
+}
+
+.head {
+  width: 48%;
+}
+#lampara {
+  text-align: center;
+}
+.lamparita {
+  width: 50%;
+  height: 50%;
+  cursor: pointer;
+}
+#loading {
+  display: none;
+  text-align: center;
+  opacity: 0.2;
+}
+.elefante {
+  height: 2%;
+  padding-right: 5px;
+  vertical-align: bottom;
+  width: 2%;
+}
+.bug {
+  height: 2%;
+  padding-right: 5px;
+  vertical-align: middle;
+  width: 6%;
+}
+footer > div > h1 {
+  color: #FFFFFF;
+  font-size: 14px;
+  line-height: 25px;
+}
+footer {
+  bottom: 0;
+  top: auto;
+  -moz-box-sizing: border-box;
+  position: fixed;
+  width: 100%;
+}
+#mensaje {
+  text-align: center;
+}
+.resaltar {
+  color: red;
+}
+.error {
+  color: red;
+}
+#formulario {
+  margin: 0 auto;
+}
+label {
+  display: block;
+  color: $verde;
+}
+.atributo {
+  text-align: center;
+  width: 100%;
+  color: $verde;
+}
+input {
+  &::-webkit-input-placeholder {
+    color: $gris;
+  }
+  &:-moz-placeholder {
+    color: $gris;
+  }
+}
+div.atributo {
+  /*  margin-top: 30px;*/
+  margin-bottom: 5%;
+}
+#boton_prender, #boton_apagar {
+  width: 49%;
+}
+.colorSelector {
+  background: url("../img/colorpicker/select2.png") repeat scroll 0 0 transparent;
+  -moz-background-size: 100% 100%; /* Firefox 3.6 */
+  background-size: 100% 100%;
+  height: 20px;
+  position: relative;
+  width: 20px;
+  display: inline-block;
+}

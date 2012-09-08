@@ -1,0 +1,170 @@
+/* line 5, ../sass/default.scss */
+h1 {
+  text-align: center;
+  color: #398235;
+}
+
+/* line 9, ../sass/default.scss */
+h3 {
+  text-align: center;
+  color: #398235;
+  font-size: 100%;
+  font-weight: bold;
+}
+
+/* line 15, ../sass/default.scss */
+p {
+  text-align: center;
+}
+
+/* line 18, ../sass/default.scss */
+fieldset {
+  border: 1px solid #cccccc;
+  margin-bottom: 1em;
+  padding: 16px 20px;
+}
+/* line 23, ../sass/default.scss */
+fieldset legend {
+  color: #398235;
+  font-size: 200%;
+  font-weight: bold;
+}
+
+/* line 30, ../sass/default.scss */
+a {
+  color: #155511;
+}
+/* line 33, ../sass/default.scss */
+a:hover {
+  color: #398235;
+}
+
+/* line 39, ../sass/default.scss */
+table tr td, table tr th {
+  text-align: center;
+}
+/* line 42, ../sass/default.scss */
+table tr th {
+  color: #155511;
+}
+
+/* line 47, ../sass/default.scss */
+.head {
+  width: 48%;
+}
+
+/* line 50, ../sass/default.scss */
+#lampara {
+  text-align: center;
+}
+
+/* line 53, ../sass/default.scss */
+.lamparita {
+  width: 50%;
+  height: 50%;
+  cursor: pointer;
+}
+
+/* line 58, ../sass/default.scss */
+#loading {
+  display: none;
+  text-align: center;
+  opacity: 0.2;
+}
+
+/* line 63, ../sass/default.scss */
+.elefante {
+  height: 2%;
+  padding-right: 5px;
+  vertical-align: bottom;
+  width: 2%;
+}
+
+/* line 69, ../sass/default.scss */
+.bug {
+  height: 2%;
+  padding-right: 5px;
+  vertical-align: middle;
+  width: 6%;
+}
+
+/* line 75, ../sass/default.scss */
+footer > div > h1 {
+  color: #FFFFFF;
+  font-size: 14px;
+  line-height: 25px;
+}
+
+/* line 80, ../sass/default.scss */
+footer {
+  bottom: 0;
+  top: auto;
+  -moz-box-sizing: border-box;
+  position: fixed;
+  width: 100%;
+}
+
+/* line 87, ../sass/default.scss */
+#mensaje {
+  text-align: center;
+}
+
+/* line 90, ../sass/default.scss */
+.resaltar {
+  color: red;
+}
+
+/* line 93, ../sass/default.scss */
+.error {
+  color: red;
+}
+
+/* line 96, ../sass/default.scss */
+#formulario {
+  margin: 0 auto;
+}
+
+/* line 99, ../sass/default.scss */
+label {
+  display: block;
+  color: #155511;
+}
+
+/* line 103, ../sass/default.scss */
+.atributo {
+  text-align: center;
+  width: 100%;
+  color: #155511;
+}
+
+/* line 109, ../sass/default.scss */
+input::-webkit-input-placeholder {
+  color: #cccccc;
+}
+/* line 112, ../sass/default.scss */
+input:-moz-placeholder {
+  color: #cccccc;
+}
+
+/* line 116, ../sass/default.scss */
+div.atributo {
+  /*  margin-top: 30px;*/
+  margin-bottom: 5%;
+}
+
+/* line 120, ../sass/default.scss */
+#boton_prender, #boton_apagar {
+  width: 49%;
+}
+
+/* line 123, ../sass/default.scss */
+.colorSelector {
+  background: url("../img/colorpicker/select2.png") repeat scroll 0 0 transparent;
+  -moz-background-size: 100% 100%;
+  /* Firefox 3.6 */
+  background-size: 100% 100%;
+  height: 20px;
+  position: relative;
+  width: 20px;
+  display: inline-block;
+}

@@ -178,7 +178,7 @@ if(jQuery) (function($) {
 				// Prevent text selection in IE
 				selector.bind('selectstart', function() { return false; });
 				
-				$(document).bind('mouseup.miniColors', function(event) {
+				$(document).bind('mouseup.miniColors touchstop.miniColors', function(event) {
 					var testSubject = $(event.target).parents().andSelf();
 					
 					if( testSubject.hasClass('miniColors-colors') ) {

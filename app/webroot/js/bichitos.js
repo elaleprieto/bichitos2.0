@@ -14,29 +14,10 @@ $(document).ready(function() {
 	$('#boton_apagar, #lamparita_index_on').click(function() {
 		apagarLamparita();
 	});
-
-	// $('.colorSelector').each(function(index, element) {
-		// $(this).ColorPicker({
-			// color : '#ff9900',
-			// // flat: true,
-			// onShow : function(colpkr) {
-				// $(colpkr).fadeIn(500);
-				// return false;
-			// },
-			// onHide : function(colpkr) {
-				// $(colpkr).fadeOut(500);
-				// return false;
-			// },
-			// onChange : function(hsb, hex, rgb) {
-				// $(element).css('backgroundColor', '#' + hex);
-				// cambiarColor(element, rgb);
-			// }
-		// });
-	// });
-	$('.colorSelector').each(function(index, element) {
+	
+	$('input.colorSelector').each(function(index, element) {
 		$(this).val('ff9900');
 		$(this).miniColors({
-			
 			change : function(hex, rgb) {
 				$(element).css('backgroundColor', '#' + hex);
 				cambiarColor(element, rgb);
