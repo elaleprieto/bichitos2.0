@@ -28,6 +28,17 @@ class BichitosController extends AppController {
 		$bichitos = $this -> Bichito -> find('all', array('fields' => $campos));
 		$this -> set('bichitos', $bichitos);
 	}
+	
+	/**
+	 * mobile es una Vista creada para el móvil, contiene algunos pocos datos.
+	 */
+	public function mobile() {
+		$this -> Bichito -> recursive = 0;
+		$this -> layout = 'mobile';
+		$campos = array('Bichito.id', 'Bichito.intensidadAzul', 'Bichito.intensidadRojo', 'Bichito.intensidadVerde');
+		$bichitos = $this -> Bichito -> find('all', array('fields' => $campos));
+		$this -> set('bichitos', $bichitos);
+	}
 
 	/**
 	 * view method

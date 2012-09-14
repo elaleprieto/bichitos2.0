@@ -178,7 +178,7 @@ if(jQuery) (function($) {
 				// Prevent text selection in IE
 				selector.bind('selectstart', function() { return false; });
 				
-				$(document).bind('mouseup.miniColors touchstop.miniColors', function(event) {
+				$(document).bind('mouseup.miniColors touchend.miniColors', function(event) {
 					var testSubject = $(event.target).parents().andSelf();
 					
 					if( testSubject.hasClass('miniColors-colors') ) {
@@ -359,7 +359,7 @@ if(jQuery) (function($) {
 				// Fire change callback
 				if( input.data('change') ) {
 					if( hex === input.data('lastChange') ) return;
-					if(event.type == 'mouseup') {
+					if((event.type == 'mouseup') || (event.type == 'touchend')) {
 						input.data('change').call(input.get(0), '#' + hex, hsb2rgb(hsb));
 						input.data('lastChange', hex);
 					}

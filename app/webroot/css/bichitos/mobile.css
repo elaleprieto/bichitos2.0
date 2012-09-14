@@ -1,0 +1,41 @@
+/* line 1, ../../sass/bichitos/mobile.scss */
+header h1.alt {
+  text-align: left;
+  letter-spacing: 0px;
+  font-size: 20px;
+}
+
+/* line 7, ../../sass/bichitos/mobile.scss */
+div.color {
+  display: inline-block;
+  text-align: center;
+  width: 24%;
+}
+
+/* line 13, ../../sass/bichitos/mobile.scss */
+.miniColors-selector {
+  width: 20px;
+}
+
+/* line 17, ../../sass/bichitos/mobile.scss */
+.miniColors-colors {
+  display: none;
+}
+
+/* line 21, ../../sass/bichitos/mobile.scss */
+.miniColors-hues {
+  left: 5px;
+  background: url("../../img/minicolors/colors.jpg") repeat scroll left center transparent;
+}
+
+/* line 26, ../../sass/bichitos/mobile.scss */
+.miniColors-trigger {
+  width: 50px;
+  height: 50px;
+  background-image: none;
+}
+
+/* line 32, ../../sass/bichitos/mobile.scss */
+.miniColors-huePicker, .miniColors-hues, .miniColors-selector {
+  width: 50px;
+}
