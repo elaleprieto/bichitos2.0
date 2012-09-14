@@ -19,6 +19,17 @@ class BichitosController extends AppController {
 	}
 
 	/**
+	 * desplegar es una Vista creada para el usuario final, contiene algunos pocos datos.
+	 */
+	public function desplegar() {
+		$this -> Bichito -> recursive = 0;
+		$this -> layout = 'desplegar';
+		$campos = array('Bichito.id', 'Bichito.intensidadAzul', 'Bichito.intensidadRojo', 'Bichito.intensidadVerde');
+		$bichitos = $this -> Bichito -> find('all', array('fields' => $campos));
+		$this -> set('bichitos', $bichitos);
+	}
+
+	/**
 	 * view method
 	 *
 	 * @throws NotFoundException
@@ -249,13 +260,13 @@ class BichitosController extends AppController {
 
 					# Se setean los colores
 					$serial -> colorearRGB($direccion, $color);
-					
+
 					#Se prenden todas las luces de los bichitos
 					$serial -> accionarRGB($direccion);
 
 					# Se cierra la conexión con el dispositivo
 					$serial -> deviceClose();
-					
+
 					# Se guardan los nuevos valores
 					$this -> Bichito -> saveColores($color);
 				}
@@ -326,12 +337,12 @@ class BichitosController extends AppController {
 			$this -> set('bichito', $this -> Bichito -> findById($id));
 		}
 	}
-	
+
 	function parallax() {
 		$this -> layout = 'layoutParallax';
 		$this -> Bichito -> recursive = 0;
 		$this -> set('bichitos', $this -> paginate());
-		
+
 	}
 
 }

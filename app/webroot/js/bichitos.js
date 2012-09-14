@@ -16,7 +16,7 @@ $(document).ready(function() {
 	});
 	
 	$('input.colorSelector').each(function(index, element) {
-		$(this).val('ff9900');
+		$(this).val(rgb2hex($(this).val()));
 		$(this).miniColors({
 			change : function(hex, rgb) {
 				$(element).css('backgroundColor', '#' + hex);
@@ -210,7 +210,6 @@ function actualizarValores(elemento) {
 	
 	/* Se obtienen los valores del bichito */
 	$.getJSON(url, function(data) {
-		console.log(data);
 		$("tr[title=" + elementoId +"] > td[title=rojo]").html(data.intensidadRojo);
 		$("tr[title=" + elementoId +"] > td[title=verde]").html(data.intensidadVerde);
 		$("tr[title=" + elementoId +"] > td[title=azul]").html(data.intensidadAzul);
@@ -219,4 +218,12 @@ function actualizarValores(elemento) {
 		$("tr[title=" + elementoId +"] > td[name=potenciaAzul]").html(data.potenciaAzul.toFixed(3));
 		$("tr[title=" + elementoId +"] > td[name=potenciaTotal]").html(data.potenciaTotal.toFixed(3));
 	});
+}
+
+function rgb2hex(rgb){
+ rgb = rgb.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/);
+ return "#" +
+  ("0" + parseInt(rgb[1],10).toString(16)).slice(-2) +
+  ("0" + parseInt(rgb[2],10).toString(16)).slice(-2) +
+  ("0" + parseInt(rgb[3],10).toString(16)).slice(-2);
 }
