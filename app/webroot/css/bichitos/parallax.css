@@ -1,0 +1,27 @@
+/* line 1, ../../sass/bichitos/parallax.scss */
+fieldset legend {
+  color: red;
+}
+
+/* line 5, ../../sass/bichitos/parallax.scss */
+div.index {
+  width: 100%;
+  float: none;
+  border: none;
+  padding: 0;
+}
+
+/* line 12, ../../sass/bichitos/parallax.scss */
+.miniColors-selector {
+  width: 20px;
+}
+
+/* line 16, ../../sass/bichitos/parallax.scss */
+.miniColors-colors {
+  display: none;
+}
+
+/* line 20, ../../sass/bichitos/parallax.scss */
+.miniColors-hues {
+  left: 5px;
+}

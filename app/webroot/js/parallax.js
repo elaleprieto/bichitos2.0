@@ -29,6 +29,7 @@ $(document).ready(function() {
       
 
 	$('.colorSelector').each(function(index, element) {
+		actualizarValores(element, hexToRgb($(element).val()));
 		$(this).miniColors({
 			change : function(hex, rgb) {
 				$(element).css('backgroundColor', '#' + hex);
@@ -58,7 +59,6 @@ $(document).ready(function() {
  * @param {Object} rgb
  */
 function cambiarColor(elemento, rgb) {
-
 	$.post(WEBROOT + "bichitos/colorin", {
 				id : $(elemento).attr('id'),
 				color: rgb
@@ -121,6 +121,24 @@ function actualizarValores(elemento, rgb) {
 		}
 		lienzo.closePath();
 		lienzo.fill();
+}
 
-	
+// function rgb2hex(rgb){
+ // rgb = rgb.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/);
+ // return "#" +
+  // ("0" + parseInt(rgb[1],10).toString(16)).slice(-2) +
+  // ("0" + parseInt(rgb[2],10).toString(16)).slice(-2) +
+  // ("0" + parseInt(rgb[3],10).toString(16)).slice(-2);
+// }
+
+function hexToRgb(h) {
+    // var r = parseInt((cutHex(h)).substring(0,2),16);
+    // var g = ((cutHex(h)).substring(2, 4), 16);
+    // var b = parseInt((cutHex(h)).substring(4, 6), 16);
+    // return r + '' + b + '' + b;
+    return {r:parseInt((cutHex(h)).substring(0,2),16), g:parseInt((cutHex(h)).substring(2, 4), 16), b:parseInt((cutHex(h)).substring(4, 6), 16)};
+}
+
+function cutHex(h) {
+	return (h.charAt(0)=="#") ? h.substring(1,7) : h;
 }

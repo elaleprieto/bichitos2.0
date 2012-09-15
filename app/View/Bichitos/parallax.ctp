@@ -1,14 +1,9 @@
 <?php
-echo $this -> Html -> css(array("style3", "screen3"));
-echo $this -> Html -> script(array("jquery-1.7.1.min",  "parallax"));
-
 # Se cargan los estilos
-// echo $this -> Html -> css('colorpicker/colorpicker');
-echo $this -> Html -> css("minicolors/jquery.miniColors");
+echo $this -> Html -> css(array("style3", "screen3", "minicolors/jquery.miniColors", 'bichitos/parallax'));
 
 # Se cargan las librerías
-// echo $this -> Html -> script('colorpicker/colorpicker');
-echo $this -> Html -> script("minicolors/jquery.miniColors");
+echo $this -> Html -> script(array("jquery-1.7.1.min",  "parallax", "minicolors/jquery.miniColors"));
 
 ?>
 <body id="body_parallax" >
@@ -130,7 +125,8 @@ echo $this -> Html -> script("minicolors/jquery.miniColors");
 		<?php
 			foreach ($bichitos as $bichito): ?>
 			<div id="colorido<?=$bichito['Bichito']['id']?>">
-			<input class="colorSelector" type="hidden" id="<?=$bichito['Bichito']['id'] ?>"/>
+			<input class="colorSelector" type="hidden" id="<?=$bichito['Bichito']['id'] ?>" 
+				value="rgb(<?php echo h($bichito['Bichito']['intensidadRojo']); ?>,<?php echo h($bichito['Bichito']['intensidadVerde']); ?>,<?php echo h($bichito['Bichito']['intensidadAzul']); ?>)"/>
 			</div>
 			<?php endforeach; ?>
 	</div>
