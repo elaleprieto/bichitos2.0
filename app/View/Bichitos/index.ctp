@@ -35,7 +35,8 @@ echo $this -> Html -> script('minicolors/jquery.miniColors');
 		<td name="potenciaAzul"><?php echo sprintf('%.3f', $bichito['Bichito']['potenciaAzul']); ?>&nbsp;</td>
 		<td name="potenciaTotal"><?php echo sprintf('%.3f', $bichito['Bichito']['potenciaTotal']); ?>&nbsp;</td>
 		<td class="selector">
-			<input class="colorSelector" type="hidden" id="<?=$bichito['Bichito']['id'] ?>"/>
+			<input class="colorSelector" type="hidden" id="<?=$bichito['Bichito']['id'] ?>" 
+				value="rgb(<?php echo h($bichito['Bichito']['intensidadRojo']); ?>,<?php echo h($bichito['Bichito']['intensidadVerde']); ?>,<?php echo h($bichito['Bichito']['intensidadAzul']); ?>)"/>
 		</td>
 	</tr>
 <?php endforeach; ?>
