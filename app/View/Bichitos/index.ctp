@@ -3,7 +3,7 @@
 echo $this -> Html -> css(array('minicolors/jquery.miniColors', 'bichitos/index'));
 
 # Se cargan las librerías
-echo $this -> Html -> script('minicolors/jquery.miniColors');
+echo $this -> Html -> script(array('minicolors/jquery.miniColors', 'http://192.168.10.104:3000/socket.io/socket.io.js', 'index'), FALSE);
 ?>
 <div class="bichitos index">
 	<h2><?php echo __('Bichitos'); ?></h2>
@@ -34,7 +34,7 @@ echo $this -> Html -> script('minicolors/jquery.miniColors');
 		<td name="potenciaVerde"><?php echo sprintf('%.3f', $bichito['Bichito']['potenciaVerde']); ?>&nbsp;</td>
 		<td name="potenciaAzul"><?php echo sprintf('%.3f', $bichito['Bichito']['potenciaAzul']); ?>&nbsp;</td>
 		<td name="potenciaTotal"><?php echo sprintf('%.3f', $bichito['Bichito']['potenciaTotal']); ?>&nbsp;</td>
-		<td class="selector">
+		<td class="selector" data-id="<?=$bichito['Bichito']['id'] ?>">
 			<input class="colorSelector" type="hidden" id="<?=$bichito['Bichito']['id'] ?>" 
 				value="rgb(<?php echo h($bichito['Bichito']['intensidadRojo']); ?>,<?php echo h($bichito['Bichito']['intensidadVerde']); ?>,<?php echo h($bichito['Bichito']['intensidadAzul']); ?>)"/>
 		</td>

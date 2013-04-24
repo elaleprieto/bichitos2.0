@@ -6,7 +6,7 @@ App::uses('AppController', 'Controller');
  * @property Bichito $Bichito
  */
 class BichitosController extends AppController {
-	private $puertoUSB = 1;
+	private $puertoUSB = 0;
 
 	/**
 	 * index method
@@ -239,6 +239,9 @@ class BichitosController extends AppController {
 	 * @return void
 	 */
 	public function colorin() {
+		$this->autoRender = FALSE;
+		// return TRUE;
+		
 		if ($this -> request -> is('post')) {
 			$this -> layout = 'ajax';
 

@@ -20,6 +20,7 @@ $(document).ready(function() {
 		$(this).miniColors({
 			change : function(hex, rgb) {
 				$(element).css('backgroundColor', '#' + hex);
+				console.log(hex);
 				cambiarColor(element, rgb);
 			}
 		});
@@ -196,6 +197,7 @@ function cambiarColor(elemento, rgb) {
 				color: rgb
 			}, function() {
 				actualizarValores(elemento);
+				window.broadcastChange(idElemento, rgb);
 			}
 	);
 }
