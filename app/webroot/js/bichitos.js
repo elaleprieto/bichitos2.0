@@ -20,7 +20,6 @@ $(document).ready(function() {
 		$(this).miniColors({
 			change : function(hex, rgb) {
 				$(element).css('backgroundColor', '#' + hex);
-				console.log(hex);
 				cambiarColor(element, rgb);
 			}
 		});
@@ -186,18 +185,18 @@ function apagarLamparita() {
  * @param {Object} rgb
  */
 function cambiarColor(elemento, rgb) {
-	var idElemento = $(elemento).attr('id');
+	var elementoId = $(elemento).attr('id');
 	
 	// $("tr[title=" + idElemento +"] > td[title=rojo]").html(rgb['r']);
 	// $("tr[title=" + idElemento +"] > td[title=verde]").html(rgb['g']);
 	// $("tr[title=" + idElemento +"] > td[title=azul]").html(rgb['b']);
 	
 	$.post(WEBROOT + "bichitos/colorin", {
-				id : $(elemento).attr('id'),
+				id : elementoId,
 				color: rgb
 			}, function() {
 				actualizarValores(elemento);
-				window.broadcastChange(idElemento, rgb);
+				window.broadcastChange(elementoId, rgb);
 			}
 	);
 }

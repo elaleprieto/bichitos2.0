@@ -59,11 +59,13 @@ $(document).ready(function() {
  * @param {Object} rgb
  */
 function cambiarColor(elemento, rgb) {
+	var elementoId = $(elemento).attr('id');
 	$.post(WEBROOT + "bichitos/colorin", {
-				id : $(elemento).attr('id'),
+				id : elementoId,
 				color: rgb
 			}, function() {
 				actualizarValores(elemento, rgb);
+				window.broadcastChange(elementoId, rgb);
 			}
 	);
 }

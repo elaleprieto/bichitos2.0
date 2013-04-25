@@ -3,7 +3,7 @@
 echo $this -> Html -> css(array("style3", "screen3", "minicolors/jquery.miniColors", 'bichitos/parallax'));
 
 # Se cargan las librerías
-echo $this -> Html -> script(array("jquery-1.7.1.min",  "parallax", "minicolors/jquery.miniColors"));
+echo $this -> Html -> script(array("jquery-1.7.1.min",  "parallax", "minicolors/jquery.miniColors", 'http://192.168.10.104:3000/socket.io/socket.io.js', 'parallaxNJS'));
 
 ?>
 <body id="body_parallax" >
@@ -124,9 +124,9 @@ echo $this -> Html -> script(array("jquery-1.7.1.min",  "parallax", "minicolors/
 	<div>
 		<?php
 			foreach ($bichitos as $bichito): ?>
-			<div id="colorido<?=$bichito['Bichito']['id']?>">
-			<input class="colorSelector" type="hidden" id="<?=$bichito['Bichito']['id'] ?>" 
-				value="rgb(<?php echo h($bichito['Bichito']['intensidadRojo']); ?>,<?php echo h($bichito['Bichito']['intensidadVerde']); ?>,<?php echo h($bichito['Bichito']['intensidadAzul']); ?>)"/>
+			<div class="selector" data-id="<?=$bichito['Bichito']['id']?>" id="colorido<?=$bichito['Bichito']['id']?>">
+				<input class="colorSelector" type="hidden" id="<?=$bichito['Bichito']['id'] ?>" 
+					value="rgb(<?php echo h($bichito['Bichito']['intensidadRojo']); ?>,<?php echo h($bichito['Bichito']['intensidadVerde']); ?>,<?php echo h($bichito['Bichito']['intensidadAzul']); ?>)"/>
 			</div>
 			<?php endforeach; ?>
 	</div>
