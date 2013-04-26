@@ -176,9 +176,9 @@ class esclavo extends phpSerial {
 	 */
 	 public function colorearRGB($direccion, $colores) {
 		$this -> colorearRojo($direccion, $colores['r']);
-		sleep(0.05);
+		// sleep(0.05);
 		$this -> colorearVerde($direccion, $colores['g']);
-		sleep(0.05);
+		// sleep(0.05);
 		$this -> colorearAzul($direccion, $colores['b']);
 	 }
 	 

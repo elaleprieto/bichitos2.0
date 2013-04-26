@@ -276,7 +276,7 @@ class BichitosController extends AppController {
 					$serial -> colorearRGB($direccion, $color);
 
 					#Se prenden todas las luces de los bichitos
-					#$serial -> accionarRGB($direccion);
+					// $serial -> accionarRGB($direccion);
 
 					# Se cierra la conexión con el dispositivo
 					$serial -> deviceClose();
@@ -359,6 +359,13 @@ class BichitosController extends AppController {
 	}
 	
 	function secuencia1() {
+		$this -> layout = 'ajax';
+	}
+
+	function secuencia2() {
+		$this -> layout = 'ajax';
+	}
+	function secuencia3() {
 		$this -> layout = 'ajax';
 	}
 

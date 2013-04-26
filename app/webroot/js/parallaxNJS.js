@@ -3,12 +3,12 @@
 
   jQuery(function() {
     window.App = {};
-    window.App.ws = io.connect('http://192.168.10.104:3000/');
+    window.App.ws = io.connect('http://192.168.10.84:3000/');
     return window.App.ws.on('colorChanged', function(data) {
       var colorBox;
+      actualizarValores($('input[id="' + data.element + '"]'), data.rgb);
       colorBox = $('.selector[data-id="' + data.element + '"] > a');
-      $(colorBox).css('backgroundColor', rgb2hexNode(data.rgb.r, data.rgb.g, data.rgb.b));
-      return actualizarValores($('input[id="' + data.element + '"]'), data.rgb);
+      return $(colorBox).css('backgroundColor', rgb2hexNode(data.rgb.r, data.rgb.g, data.rgb.b));
     });
   });
 

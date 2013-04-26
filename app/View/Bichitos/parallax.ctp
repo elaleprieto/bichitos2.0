@@ -3,7 +3,7 @@
 echo $this -> Html -> css(array("style3", "screen3", "minicolors/jquery.miniColors", 'bichitos/parallax'));
 
 # Se cargan las librerías
-echo $this -> Html -> script(array("jquery-1.7.1.min",  "parallax", "minicolors/jquery.miniColors", 'http://192.168.10.104:3000/socket.io/socket.io.js', 'parallaxNJS'));
+echo $this -> Html -> script(array("jquery-1.7.1.min",  "parallax", "minicolors/jquery.miniColors", 'http://192.168.10.84:3000/socket.io/socket.io.js', 'parallaxNJS'));
 
 ?>
 <body id="body_parallax" >

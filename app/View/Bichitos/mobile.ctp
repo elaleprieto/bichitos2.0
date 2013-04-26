@@ -3,7 +3,7 @@
 echo $this -> Html -> css(array('minicolors/jquery.miniColors', 'bichitos/mobile'));
 
 # Se cargan las librerías
-echo $this -> Html -> script(array('minicolors/jquery.miniColors', 'http://192.168.10.104:3000/socket.io/socket.io.js', 'index'));
+echo $this -> Html -> script(array('minicolors/jquery.miniColors', 'http://192.168.10.84:3000/socket.io/socket.io.js', 'index'));
 ?>
 <div>
 	<?php foreach ($bichitos as $bichito): ?>

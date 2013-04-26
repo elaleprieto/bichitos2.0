@@ -3,7 +3,7 @@
 
   jQuery(function() {
     window.App = {};
-    window.App.ws = io.connect('http://192.168.10.104:3000/');
+    window.App.ws = io.connect('http://192.168.10.84:3000/');
     return window.App.ws.on('colorChanged', function(data) {
       var colorBox;
       console.log('Elemento: ' + data.element, 'Color recibido: ' + data.rgb);

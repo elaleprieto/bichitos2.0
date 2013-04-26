@@ -3,7 +3,7 @@
 echo $this -> Html -> css(array('minicolors/jquery.miniColors', 'bichitos/index'));
 
 # Se cargan las librerías
-echo $this -> Html -> script(array('minicolors/jquery.miniColors', 'http://192.168.10.104:3000/socket.io/socket.io.js', 'index'), FALSE);
+echo $this -> Html -> script(array('minicolors/jquery.miniColors', 'http://192.168.10.84:3000/socket.io/socket.io.js', 'index'), FALSE);
 ?>
 <div class="bichitos index">
 	<h2><?php echo __('Bichitos'); ?></h2>

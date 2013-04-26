@@ -1,7 +1,8 @@
 jQuery ->
 	window.App = {}
 	# App.ws = io.connect('/')
-	window.App.ws = io.connect('http://192.168.10.104:3000/')
+	window.App.ws = io.connect('http://192.168.10.84:3000/')
+  # window.App.ws = io.connect('http://colectivolibre.com.ar:3000/')
 
 	# App.ws.on 'ready', () ->
 		# console.log 'WebSockets Listos!'
