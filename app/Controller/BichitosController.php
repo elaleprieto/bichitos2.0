@@ -356,4 +356,11 @@ class BichitosController extends AppController {
 
 	}
 
+	function secuencia4() {
+		$this -> layout = 'ajax';
+	}
+
+	function secuencia5() {
+		$this -> layout = 'ajax';
+	}
 }
