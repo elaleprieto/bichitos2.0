@@ -5,7 +5,7 @@ window.App = {}
 window.App.ws = io.connect('http://192.168.10.104:3000/')
 
 secuenciaAleatoria = () ->
-	bichitoId = (Math.floor((Math.random() * 10)) % 4) + 1 # random between 1 (one) and 3 (three)
+	bichitoId = (Math.floor((Math.random() * 10)) % 4) + 1 # random between 1 (one) and 4 (four)
 	bichitoColor = (Math.floor((Math.random() * 10)) % 3) + 1 # random between 1 (one) and 3 (three)
 	red = if bichitoColor is 1 then 255 else (Math.floor((Math.random() * 1000)) % 255)
 	green = if bichitoColor is 2 then 255 else (Math.floor((Math.random() * 1000)) % 255)
